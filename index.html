@@ -42,463 +42,71 @@
     - #HEADER
   -->
 
-  <header class="header" data-header>
 
-    <div class="overlay" data-overlay></div>
-
-
-
-    <div class="header-bottom">
-      <div class="container">
-
-      <div class="head">
-        <a href="#" class="logo">
-          
-            <h1>Tapblox<strong style="color: orange;">.</strong></h1>
-          </a>
-      </div>
-
-        <nav class="navbar" data-navbar>
-
-          <div class="navbar-top">
-
-            <a href="#" class="logo">
-              <img src="assets/images/18957d34-dfd0-41c9-bcbb-0bf8c6d1dbbc.jfif" alt="Homeverse logo">
-          
-            </a>
-
-            <button class="nav-close-btn" data-nav-close-btn aria-label="Close Menu">
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
-
-          </div>
-
-          <div class="navbar-bottom">
-            <ul class="navbar-list">
-
-                <li >
-                    <a  href="#home" class="navbar-link" data-nav-link>Home</a>
-                  </li>
-    
-                  <li>
-                    <a href="https://fipzone.com" target="_blank" class="navbar-link" data-nav-link>Learn More</a>
-                  </li>
-    
-           
-    
-                  <li>
-                    <a href="#contact" class="navbar-link" data-nav-link>Contact Us</a>
-                  </li>
-
-            </ul>
-          </div>
-
-        </nav>
-
-        <div class="header-bottom-actions">
-
-          <button  style="  border-radius: 10px;
-          padding:0 10px;
-          background: #3c3c3c;" class="header-bottom-actions-btn" aria-label="Earn" onclick="window.location.href='index.html';">
-            <ion-icon style="color: orange;" name="star-outline"></ion-icon>
-
-            <span>Earn</span>
-          </button>
-
-
-
-          <button class="header-bottom-actions-btn" aria-label="Tasks" onclick="window.location.href='task.html';">
-            <ion-icon name="list-outline"></ion-icon>
-            <span>Activities</span>
-        </button>
-
-   
-
-          <button class="header-bottom-actions-btn" aria-label="Frens" onclick="window.location.href='frens.html';">
-            <ion-icon name="trophy-outline"></ion-icon>
-            <span>Lucky Win</span>
-        </button>
-        
-       
-
-          <button class="header-bottom-actions-btn" aria-label="Boost" onclick="window.location.href='boost.html';">
-            <ion-icon name="rocket-outline"></ion-icon>
-
-            <span>Boost</span>
-          </button>
-
-          <button class="header-bottom-actions-btn" aria-label="Wallet" onclick="window.location.href='wallet.html';">
-            <ion-icon name="wallet-outline"></ion-icon>
-
-            <span>Wallet</span>
-          </button>
-
-        </div>
-
-      </div>
-    </div>
-
-  </header>
-
-
-
-<style>
-    /* Style for the overlay message */
-    #overlay-message {
-        display: none; /* Hidden by default */
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgb(0, 0, 0); /* Semi-transparent background */
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.5em;
-        text-align: center;
-        z-index: 1000; /* Ensure it covers everything else */
+  <style>
+    /* Center the loader on the screen */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #000000; /* Optional: Background color */
     }
 
+    /* Loader container styling */
+    .loader-container {
+      width: 100%;
+      max-width: 300px; /* Adjust max width as needed */
+      /* border: 2px solid #ddd; */
+      border-radius: 10px;
+      overflow: hidden;
+    }
 
+    /* Progress bar styling */
+    .progress-bar {
+      height: 3px;
+      background-color: orange;
+      width: 0;
+      color: transparent; /* Hide the text */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      transition: width 0.1s ease;
+    }
+  </style>
+</head>
+<body>
+
+<div class="loader-container">
+  
+        <h1 style="color: white; font-family: poppins; text-align: center;">Tapblox<strong style="color: orange;">.</strong></h1>
     
-
-</style>
-
-<div id="overlay-message">You'll need a mobile device to use this app</div>
+<br>
+  <div id="progress-bar" class="progress-bar"></div>
+</div>
 
 <script>
-    function checkScreenWidth() {
-        if (window.innerWidth > 680) {
-            // Show the overlay message if the screen width is greater than 680px
-            document.getElementById("overlay-message").style.display = "flex";
-        } else {
-            // Hide the overlay message if the screen width is 680px or less
-            document.getElementById("overlay-message").style.display = "none";
-        }
-    }
+  // Function to animate the progress bar
+  function startLoader() {
+    const progressBar = document.getElementById('progress-bar');
+    let progress = 0;
+    const interval = setInterval(() => {
+      progress++;
+      progressBar.style.width = progress + '%';
 
-    // Initial check when the page loads
-    checkScreenWidth();
+      // When progress reaches 100, stop the interval and redirect
+      if (progress >= 100) {
+        clearInterval(interval);
+        window.location.href = 'home.html'; // Redirect to home.html
+      }
+    }, 15); // 30 milliseconds interval for 3 seconds duration (30ms * 100 steps = 3000ms)
+  }
 
-    // Check again when the window is resized
-    window.onresize = checkScreenWidth;
+  // Start the loader when the page loads
+  window.onload = startLoader;
 </script>
-
-  <main>
-    <article>
-        <section class="hero" id="home">
-            <div class="container">
-    
-              <div class="hero-content">
-    
-             
-
-                
-              <style>
-                .profile-container2 {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                  
-                    margin: 10px;
-                
-                }
-            
-            
-            </style>
-            
-      
-            <div class="profile-container2">
-              <div
-              style="display: flex; align-items: center; justify-content: center; text-align: center;">
-              <img
-                  src="images/user.png"
-                  alt=""
-                  style="width: 30px;  margin-right: 5px;" />
-              
-                  <h1 style="color: white;  font-weight: 450; font-family: poppins; font-size: 15px;">
-                  User's Name
-                  </h1>
-              </div>
-         
-     
-              
-<div
-style="display: flex; align-items: center; justify-content: center; text-align: center;">
-<img
-    src="images/WhatsApp_Image_2024-08-30_at_5.59.28_PM-removebg-preview.png"
-    alt=""
-    style="width: 30px;  margin-right: 5px;" />
-
-    <h1 style="color: white; font-weight: bold; font-family: poppins; font-size: 15px;">
-      0
-    </h1>
-</div>
-          </div>
-<!--     
-                <h2 class="h1 hero-title">Earn FipCoins</h2>
-    
-               -->
-                <style>
-                    .button-container {
-                        display: flex;
-                        justify-content: center;
-                        gap: 10px; /* Adjust the gap between the buttons */
-                        margin-top: 20px; /* Optional: add some space above the buttons */
-                        flex-wrap: wrap; /* Allows the buttons to wrap to the next line if needed */
-                    }
-                
-                    .button-container .btnn {
-                        flex: 1 1 auto; /* Allows the buttons to shrink or grow */
-                        padding: 2vw 4vw; /* Padding adjusts with the viewport width */
-                        text-align: center;
-                        text-decoration: none;
-                        border: 3px solid #1e1e1e;
-                        border-radius: 10px; /* Rounded corners */
-                        transition: background-color 0.3s ease; /* Smooth transition on hover */
-                        background-color: #1e1e1e;
-                        color: #e3e3e3;
-                        font-size: 3vw; /* Font size adjusts with the viewport width */
-                    }
-                
-                    .button-container .btnn:hover {
-                        color: rgb(255, 255, 255); /* Adjust color as needed */
-                        background-color: #313131; /* Adjust background color as needed */
-                    }
-                
-                    /* Media queries for smaller screens */
-                    @media (max-width: 680px) {
-                        .button-container .btnn {
-                            padding: 10px 20px; /* Reduce padding on smaller screens */
-                            font-size: 18px;  /* Increase font size proportionally */
-                        }
-                    }
-                
-                    @media (max-width: 480px) {
-                        .button-container .btnn {
-                            padding: 8px 16px; /* Further reduce padding */
-                            font-size: 18px;  /* Further increase font size proportionally */
-                        }
-                    }
-
-
-
-
-                    .button-container .btnn2 {
-                        flex: 1 1 auto; /* Allows the buttons to shrink or grow */
-                        padding: 2vw 4vw; /* Padding adjusts with the viewport width */
-                        text-align: center;
-                        text-decoration: none;
-                        border: 3px solid #00000053;
-                        border-radius: 10px; /* Rounded corners */
-                        transition: background-color 0.3s ease; /* Smooth transition on hover */
-                        background-color: orange;
-                        color: #e3e3e3;
-                        font-size: 3vw; /* Font size adjusts with the viewport width */
-                    }
-                
-                    .button-container .btnn2:hover {
-                        color: rgb(255, 255, 255); /* Adjust color as needed */
-                        background-color: #313131; /* Adjust background color as needed */
-                    }
-                
-                    /* Media queries for smaller screens */
-                    @media (max-width: 680px) {
-                        .button-container .btnn2 {
-                            padding: 10px 20px; /* Reduce padding on smaller screens */
-                            font-size: 18px;  /* Increase font size proportionally */
-                        }
-                    }
-                
-                    @media (max-width: 480px) {
-                        .button-container .btnn2 {
-                            padding: 8px 16px; /* Further reduce padding */
-                            font-size: 18px;  /* Further increase font size proportionally */
-                        }
-                    }
-                </style>
-
-                <div style="border-top: 2px solid gold;">
-                
-                <div class="button-container">
-                    <button id="withdrawButton" class="btnn" onclick="window.location.href='index.html';"><i style="margin-right: 5px;" class="fas fa-hand-pointer"></i> 300 Taps Left</button>
-                    <button id="boostButton" class="btnn" onclick="window.location.href='index.html';"><i style="margin-right: 5px;" class="fas fa-rocket"></i> Boosters</button>
-                </div>
-
-           
-                
-                <br>
-                <br>
-                <!-- <p style="color: grey; text-align: center; font-size: 15px; ">Tap the coin as fast as you can <strong>before the XP runs out</strong></p>
-<br>
-<br>
-      
-                
-<br> -->
-
-<style>
-    .image-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 30vh;
-    }
-
-    .centered-image {
-        max-width: 85%; /* Ensures the image is responsive */
-        max-height: 300px; /* Ensures the image is responsive */
-   
-    }
-</style>
-<div
-  style="display: flex; align-items: center; justify-content: center; text-align: center;">
-  <!-- <img
-    src="images/WhatsApp_Image_2024-08-30_at_9.40.54_AM-removebg-preview-yr3y1QkLP-transformed.png"
-    alt=""
-    style="width: 50px; height: auto; margin-right: 10px;" /> -->
-    <i></i>
-  <h1 style="color: white; font-weight: bold; font-family: poppins; font-size: 40px;">
-    500 <strong style="color: orange;">MAX</strong>
-  </h1>
-</div>
-<br>
-
-<div class="image-container">
-  
-    <img src="images/WhatsApp_Image_2024-08-30_at_5.59.28_PM-removebg-preview.png" alt="Centered Image" class="centered-image">
- 
-</div>
-</div>
-              
-              </div>
-    
-
-              <style>
-                .profile-container {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    position: fixed;
-                    bottom: 90px;
-                    background: #1e1e1e;
-                    padding: 15px;
-                    height: 80px;
-                  
-                    right: 0;
-                    margin: 10px;
-                    border-radius: 10px;
-                    left: 0;
-
-                    padding-block: 15px 10px;
-                  
-                    z-index: 3;
-
-                    border-radius: 10px;
-                }
-            
-                .hero-title {
-                    margin: 0;
-                    font-size: 24px;
-                    font-weight: bold;
-                }
-            
-                .claim{
-                   padding: 15px 25px;
-                   background: orange;
-                   border-radius: 10px ;
-                   font-family: poppins;
-                   font-weight: bold;
-                   color: #000000;
-                }
-            </style>
-            
-            <br>
-            <div class="profile-container">
-              <h2 class="hero-title" id="Total-amount">0 <strong style="color: orange;">MAX</strong></h2>
-          
-              <button class="claim">Claim!</button>
-          </div>
-    
-            </div>
-          </section>
-    
-
-
-        
-        
-
-
-
-
-
-
-
-
-
-
-
-          <div id="popup" class="popup">
-            <p id="popup-message"></p>
-        </div>
-        
-
-
-
-
-
-
-<script>
-    
-function showPopup(message, redirect = false) {
-  const popup = document.getElementById('popup');
-  const popupMessage = document.getElementById('popup-message');
-  
-  popupMessage.textContent = message;
-  popup.classList.add('show');
-
-
-   // Hide popup after 3 seconds and redirect if necessary
-   setTimeout(() => {
-      popup.classList.remove('show');
-      if (redirect) {
-          window.location.href = 'login.html';
-      } 
-  }, 3000);
-}
-</script>
-
-
-     
-
-
-
- 
-
-    </article>
-  </main>
-
-
-
-
-
-  <footer class="footer">
-
-
-
-    <div class="footer-bottom">
-      <div class="container">
-
-      
-
-      </div>
-    </div>
-
-  </footer>
-
-
-
 
   <!-- 
     - custom js link
