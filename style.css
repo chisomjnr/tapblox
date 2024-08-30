@@ -25,7 +25,7 @@
     --raisin-black-1: hsl(0, 0%, 11%);
     --raisin-black-2: hsl(0, 0%, 0%);
     --yellow-green: hsl(89, 72%, 45%);
-    --orange-soda: #4a179b;
+    --orange-soda: orange;
     --cultured-1: hsl(0, 0%, 93%);
     --cultured-2: hsl(192, 24%, 96%);
     --misty-rose: hsl(281, 100%, 80%);
@@ -591,176 +591,49 @@
     text-align: left;
   }
   
+
+  @media (max-width: 380px){
+    #boostButton{
+      display: none;
+    }
+  }
+
+
+
+
   @media (max-width: 680px){
     .po{
       text-align: center;
     }
-  }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  #popup {
-    display: none;
-    font-family: 'Poppins', sans-serif;
-    position: absolute;
-    font-size: 15px;
-    font-weight: 400;
-    bottom: 20px;
-    left: 680px;
-    width: 550px;
-    margin: 5px;
-    background: rgb(0, 0, 0);
-    padding: 10px 20px;
-    border-radius: 25px;
-  
-    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.726);
-  }
-  
-  .drawer {
-    width: 200px;
-    height: 4px;
-    border-radius: 10%;
-    background-color: rgb(8, 8, 8);
-    margin: 5px auto;
-    cursor: pointer;
-    position: relative;
-    top: -30px;
+
     
-    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.726);
-  }
-  
-  #popup p{
-    margin: 20px;
-    color: #fff;
-    font-size: 17px;
-  }
-  
-  #popup button{
-    border-radius: 25px;
-    background-color: bisque;
-    padding: 10px;
-    width: 100%;
-    margin-bottom: 10px;
-    color: #252525;
-    font-weight: bold;
-    font-size: 20px;
-    transition: .2s ease-in-out;
-    border: 3.5px solid black;
-  }
-  
-  #popup button:hover{
-    background-color: transparent;
-    color: bisque;
-    border: 3.5px solid bisque;
-  }
-  
-  #popup.show {
-    display: block;
-    animation: slide-up 0.5s;
-  }
-  
-  @keyframes slide-up {
-    from {
-        transform: translateY(100%);
-    }
-    to {
-        transform: translateY(0);
-    }
-  }
-  
-  #popup.hide{
-    display: block;
-    animation: slide-down 0.3s;
-  }
-  
-  @keyframes slide-down {
-    from {
-        transform: translateY(0);
-    }
-    to {
-        transform: translateY(100%);
-    }
-  }
-  
-  
-  .image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-    overflow: hidden;
-  
-  }
-  
-  .image-container i {
-    font-size: 40px;
-    /* max-width: 120px;
-    max-height: 120px; */
-    margin: 20px;
-  
-    margin-top: 10px; /* Adjust this value to move the image up */
-    /* animation: floatAnimation 2s ease-in-out infinite; Apply the floating animation */
-    animation: bell-ring 0.5s ease-in-out infinite;
-  }
-  
-  @keyframes bell-ring {
-    0%, 100% {
-        transform: rotate(0deg);
-    }
-    50% {
-        transform: rotate(20deg);
-    }
-  }
-  
-  @keyframes floatAnimation {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px); /* Adjust the floating distance as needed */
-    }
-    100% {
-        transform: translateY(0);
-    }
-  }
-  
-  .image-container h1 {
-    color: #fff;
-    font-size: 30px;
-    right: -10px; /* Adjust the position as needed */
-    top: 50%; /* Center the h1 vertically within the container */
-  
-    margin: 0;
+.popup {
+    position: fixed;
+    bottom: -180px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #007bff;
+    color: white;
+    padding:15px 20px;
+   font-family: poppins;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: bottom 0.5s, opacity 0.5s;
+}
+
+.popup.show {
+    bottom: 20px;
+    opacity: 1;
+}
   }
   
   
   
   
   
-  
-  
-  
+
+
   
   
   /*-----------------------------------*\
@@ -774,8 +647,9 @@
     background-size: cover;
     padding-block: var(--section-padding);
   }
+  /* }
   
-  .hero-content { margin-bottom: 60px; }
+  .hero-content { margin-bottom: 20px; } */
   
   .hero-subtitle {
     display: flex;

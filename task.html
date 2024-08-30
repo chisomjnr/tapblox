@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tapblox |  Tasks</title>
+
+
+  <link rel="shortcut icon" href="assets/images/7bc1fb87-e6f9-426f-8eec-2a9fa96c46a7.jpg" type="image/svg+xml">
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  
+
+
+
+  <!-- 
+    - favicon
+  -->
+
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+
+    <div class="overlay" data-overlay></div>
+
+
+
+    <div class="header-bottom">
+      <div class="container">
+
+      <div class="head">
+        <a href="#" class="logo">
+          
+            <h1>Tasks<strong style="color: orange;">.</strong></h1>
+          </a>
+      </div>
+
+        <nav class="navbar" data-navbar>
+
+          <div class="navbar-top">
+
+            <a href="#" class="logo">
+              <img src="assets/images/18957d34-dfd0-41c9-bcbb-0bf8c6d1dbbc.jfif" alt="Homeverse logo">
+          
+            </a>
+
+            <button class="nav-close-btn" data-nav-close-btn aria-label="Close Menu">
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+          </div>
+
+          <div class="navbar-bottom">
+            <ul class="navbar-list">
+
+                <li >
+                    <a  href="#home" class="navbar-link" data-nav-link>Home</a>
+                  </li>
+    
+                  <li>
+                    <a href="https://fipzone.com" target="_blank" class="navbar-link" data-nav-link>Learn More</a>
+                  </li>
+    
+           
+    
+                  <li>
+                    <a href="#contact" class="navbar-link" data-nav-link>Contact Us</a>
+                  </li>
+
+            </ul>
+          </div>
+
+        </nav>
+
+        <div class="header-bottom-actions">
+
+          <button class="header-bottom-actions-btn" aria-label="Earn" onclick="window.location.href='index.html';">
+            <ion-icon  name="star-outline"></ion-icon>
+
+            <span>Earn</span>
+          </button>
+
+
+
+          <button style="  border-radius: 10px;
+          padding:0 10px;
+          background: #252525;" class="header-bottom-actions-btn" aria-label="Tasks" onclick="window.location.href='task.html';">
+            <ion-icon style="color: orange;" name="list-outline"></ion-icon>
+            <span>Tasks</span>
+        </button>
+
+   
+
+          <button class="header-bottom-actions-btn" aria-label="Frens" onclick="window.location.href='frens.html';">
+            <ion-icon name="trophy-outline"></ion-icon>
+            <span>Lucky Win</span>
+        </button>
+        
+       
+
+          <button class="header-bottom-actions-btn" aria-label="Boost" onclick="window.location.href='boost.html';">
+            <ion-icon name="rocket-outline"></ion-icon>
+
+            <span>Boost</span>
+          </button>
+
+          <button   class="header-bottom-actions-btn" aria-label="Wallet" onclick="window.location.href='wallet.html';">
+             <ion-icon name="wallet-outline"></ion-icon>
+
+            <span>Wallet</span>
+          </button>
+
+        </div>
+
+      </div>
+    </div>
+
+  </header>
+
+
+
+<style>
+    /* Style for the overlay message */
+    #overlay-message {
+        display: none; /* Hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(0, 0, 0); /* Semi-transparent background */
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5em;
+        text-align: center;
+        z-index: 1000; /* Ensure it covers everything else */
+    }
+</style>
+
+<div id="overlay-message">You'll need a mobile device to use this app</div>
+
+<script>
+    function checkScreenWidth() {
+        if (window.innerWidth > 680) {
+            // Show the overlay message if the screen width is greater than 680px
+            document.getElementById("overlay-message").style.display = "flex";
+        } else {
+            // Hide the overlay message if the screen width is 680px or less
+            document.getElementById("overlay-message").style.display = "none";
+        }
+    }
+
+    // Initial check when the page loads
+    checkScreenWidth();
+
+    // Check again when the window is resized
+    window.onresize = checkScreenWidth;
+</script>
+
+  <main>
+    <article>
+        <section class="hero" id="home">
+            <div class="container">
+    
+              <div class="hero-content">
+    
+                <style>
+                  .profile-container2 {
+                      display: flex;
+                      justify-content: space-between;
+                      align-items: center;
+                    
+                      margin: 10px;
+                  
+                  }
+              
+              
+              </style>
+              
+        
+              <div class="profile-container2">
+                <div
+                style="display: flex; align-items: center; justify-content: center; text-align: center;">
+                <img
+                    src="images/user.png"
+                    alt=""
+                    style="width: 30px;  margin-right: 5px;" />
+                
+                    <h1 style="color: white;  font-weight: 450; font-family: poppins; font-size: 15px;">
+                    User's Name
+                    </h1>
+                </div>
+           
+       
+                
+  <div
+  style="display: flex; align-items: center; justify-content: center; text-align: center;">
+  <img
+      src="images/image.png"
+      alt=""
+      style="width: 30px;  margin-right: 5px;" />
+  
+      <h1 style="color: white; font-weight: bold; font-family: poppins; font-size: 15px;">
+        0
+      </h1>
+  </div>
+            </div>
+    
+              
+                <style>
+                    .button-container {
+                        display: flex;
+                        justify-content: center;
+                        gap: 10px; /* Adjust the gap between the buttons */
+                        margin-top: 20px; /* Optional: add some space above the buttons */
+                        flex-wrap: wrap; /* Allows the buttons to wrap to the next line if needed */
+                    }
+                
+                    .button-container .btnn {
+                        flex: 1 1 auto; /* Allows the buttons to shrink or grow */
+                        padding: 2vw 4vw; /* Padding adjusts with the viewport width */
+                        text-align: center;
+                        text-decoration: none;
+                        border: 3px solid #111111;
+                        border-radius: 10px; /* Rounded corners */
+                        transition: background-color 0.3s ease; /* Smooth transition on hover */
+                        background-color: #111111;
+                        color: #e3e3e3;
+                        font-size: 3vw; /* Font size adjusts with the viewport width */
+                    }
+                
+                    .button-container .btnn:hover {
+                        color: rgb(255, 255, 255); /* Adjust color as needed */
+                        background-color: #313131; /* Adjust background color as needed */
+                    }
+                
+                    /* Media queries for smaller screens */
+                    @media (max-width: 680px) {
+                        .button-container .btnn {
+                            padding: 10px 20px; /* Reduce padding on smaller screens */
+                            font-size: 18px;  /* Increase font size proportionally */
+                        }
+                    }
+                
+                    @media (max-width: 480px) {
+                        .button-container .btnn {
+                            padding: 8px 16px; /* Further reduce padding */
+                            font-size: 18px;  /* Further increase font size proportionally */
+                        }
+                    }
+
+
+
+
+                    .button-container .btnn2 {
+                        flex: 1 1 auto; /* Allows the buttons to shrink or grow */
+                        padding: 2vw 4vw; /* Padding adjusts with the viewport width */
+                        text-align: center;
+                        text-decoration: none;
+                        border: 3px solid #00000053;
+                        border-radius: 10px; /* Rounded corners */
+                        transition: background-color 0.3s ease; /* Smooth transition on hover */
+                        background-color: orange;
+                        color: #e3e3e3;
+                        font-size: 3vw; /* Font size adjusts with the viewport width */
+                    }
+                
+                    .button-container .btnn2:hover {
+                        color: rgb(255, 255, 255); /* Adjust color as needed */
+                        background-color: #313131; /* Adjust background color as needed */
+                    }
+                
+                    /* Media queries for smaller screens */
+                    @media (max-width: 680px) {
+                        .button-container .btnn2 {
+                            padding: 10px 15px; /* Reduce padding on smaller screens */
+                            font-size: 18px;  /* Increase font size proportionally */
+                        }
+                    }
+                
+                    @media (max-width: 480px) {
+                        .button-container .btnn2 {
+                            padding: 8px 11px; /* Further reduce padding */
+                            font-size: 18px;  /* Further increase font size proportionally */
+                        }
+                    }
+                </style>
+
+                <div style="border-top: 2px solid gold;">
+                
+                <div class="button-container">
+               
+                    <button id="boostButto" class="btnn" onclick="window.location.href='index.html';"><i style="margin-right: 5px;" class="fas fa-tasks"></i> Daily Tasks</button>
+                    <button id="withdrawButto" class="btnn" onclick="window.location.href='index.html';"><i style="margin-right: 5px;" class="fas fa-play"></i> Challenges</button>
+                    <button id="withdrawButton" class="btnn" onclick="window.location.href='index.html';"><i style="margin-right: 5px;" class="fas fa-play"></i> Mine</button>
+                </div>
+
+           
+                
+                <br>
+                
+      
+              
+              </div>
+    
+    
+            </div>
+          </section>
+    
+
+
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
+
+
+
+ 
+
+    </article>
+  </main>
+
+
+
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+
+
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">
+          &copy; 2024 <a href="#"><strong>Tapblox</strong></a>. All Rights Reserved
+        </p>
+        <br>
+        <br>
+
+      </div>
+    </div>
+
+  </footer>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
