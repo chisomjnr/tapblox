@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tapblox |  Tasks</title>
+  <title>Tapblox |  Activities</title>
 
 
   <link rel="shortcut icon" href="assets/images/7bc1fb87-e6f9-426f-8eec-2a9fa96c46a7.jpg" type="image/svg+xml">
@@ -188,48 +188,8 @@
     
               <div class="hero-content">
     
-                <style>
-                  .profile-container2 {
-                      display: flex;
-                      justify-content: space-between;
-                      align-items: center;
-                    
-                      margin: 10px;
-                  
-                  }
-              
-              
-              </style>
-              
         
-              <div class="profile-container2">
-                <div
-                style="display: flex; align-items: center; justify-content: center; text-align: center;">
-                <img
-                    src="images/user.png"
-                    alt=""
-                    style="width: 30px;  margin-right: 5px;" />
-                
-                    <h1 style="color: white;  font-weight: 450; font-family: poppins; font-size: 15px;">
-                    User
-                    </h1>
-                </div>
-           
-       
-                
-  <div
-  style="display: flex; align-items: center; justify-content: center; text-align: center;">
-  <img
-      src="images/WhatsApp_Image_2024-08-30_at_5.59.28_PM-removebg-preview.png"
-      alt=""
-      style="width: 30px;  margin-right: 5px;" />
-  
-      <h1 style="color: white; font-weight: bold; font-family: poppins; font-size: 15px;">
-        0
-      </h1>
-  </div>
-            </div>
-    
+        
               
             <style>
               .button-container {
@@ -245,10 +205,10 @@
                 padding: 2vw 4vw;
                 text-align: center;
                 text-decoration: none;
-                border: 3px solid #1e1e1e;
-                border-radius: 10px;
+                border: 3px solid #1e1e1e00;
+                
                 transition: background-color 0.3s ease;
-                background-color: #1e1e1e;
+                background-color: #31282800;
                 color: #e3e3e3;
                 font-size: 3vw;
               }
@@ -260,9 +220,10 @@
 
                             /* Active button styling */
               .button-container .btnn.active-tab {
-                background-color: rgb(255, 255, 255);
-                color: #1e1e1e;
-                border-color: #ffffff;
+                background-color: rgba(255, 255, 255, 0);
+                color: orange;
+                border-bottom: 3px solid orange;
+              
               }
                         
               /* Media queries for smaller screens */
@@ -285,7 +246,7 @@
                 display: none; /* Hidden by default */
                 margin-top: 40px;
                 color: white;
-                max-height: 350px; /* Set maximum height */
+                max-height: 400px; /* Set maximum height */
                 overflow-y: auto; /* Makes content scrollable */
               }
             
@@ -294,7 +255,7 @@
               }
             </style>
             
-            <div style="border-top: 2px solid gold;">
+            <div >
               <div id="tabs" class="button-container">
                 <button id="dailytasks" class="btnn" onclick="showTab('dailyTasksContent', this);">
                   <i style="margin-right: 5px;" class="fas fa-tasks"></i> Daily Tasks
