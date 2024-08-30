@@ -168,19 +168,29 @@
     background: var(--black);
     overflow-x: hidden;
   }
-  
-  ::-webkit-scrollbar {
-    width: 10px;
-    height: 8px;
-  }
-  
-  ::-webkit-scrollbar-track { background: var(--white); }
-  
-  ::-webkit-scrollbar-thumb {
-    background: var(--cadet);
-    border-left: 2px solid var(--white);
-  }
-  
+
+  /* Apply styles to the scrollbar */
+::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
+
+/* Track (background of the scrollbar) */
+::-webkit-scrollbar-track {
+  background: #000000; /* Light grey background */
+  border-radius: 100px; /* Rounded corners */
+}
+
+/* Handle (scroll thumb) */
+::-webkit-scrollbar-thumb {
+  background: #212121; /* Dark grey color */
+  border-radius: 10px; /* Rounded corners */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: orange; /* Darker grey on hover */
+}
+
   
   @font-face {
     font-family: "planetfonts";
@@ -527,7 +537,7 @@
   }
   
   .header-bottom-actions {
-    background: #111111;
+    background: #1e1e1e;
     position: fixed;
     bottom: 0;
     right: 0;
@@ -566,7 +576,7 @@
   }
   
   .header-bottom-actions-btn:is(:hover, :focus) ion-icon { 
-    color: var(--orange-soda); 
+    color: white; 
     /* transform: translateY(-5px); */
 
 }
@@ -574,7 +584,7 @@
 .header-bottom-actions-btn:is(:hover, :focus)  { 
     border-radius: 10px;
     padding:0 10px;
-    background: #252525;
+    background: orange;
    
 }
   
