@@ -54,7 +54,7 @@
       <div class="head">
         <a href="#" class="logo">
           
-            <h1>Tasks<strong style="color: orange;">.</strong></h1>
+            <h1>Activities<strong style="color: orange;">.</strong></h1>
           </a>
       </div>
 
@@ -109,7 +109,7 @@
           padding:0 10px;
           background: #3c3c3c;" class="header-bottom-actions-btn" aria-label="Tasks" onclick="window.location.href='task.html';">
             <ion-icon style="color: orange;" name="list-outline"></ion-icon>
-            <span>Tasks</span>
+            <span>Activities</span>
         </button>
 
    
@@ -232,93 +232,205 @@
             </div>
     
               
-                <style>
-                    .button-container {
-                        display: flex;
-                        justify-content: center;
-                        gap: 10px; /* Adjust the gap between the buttons */
-                        margin-top: 20px; /* Optional: add some space above the buttons */
-                        flex-wrap: wrap; /* Allows the buttons to wrap to the next line if needed */
-                    }
-                
-                    .button-container .btnn {
-                        flex: 1 1 auto; /* Allows the buttons to shrink or grow */
-                        padding: 2vw 4vw; /* Padding adjusts with the viewport width */
-                        text-align: center;
-                        text-decoration: none;
-                        border: 3px solid #1e1e1e;
-                        border-radius: 10px; /* Rounded corners */
-                        transition: background-color 0.3s ease; /* Smooth transition on hover */
-                        background-color: #1e1e1e;
-                        color: #e3e3e3;
-                        font-size: 3vw; /* Font size adjusts with the viewport width */
-                    }
-                
-                    .button-container .btnn:hover {
-                        color: rgb(255, 255, 255); /* Adjust color as needed */
-                        background-color: #313131; /* Adjust background color as needed */
-                    }
-                
-                    /* Media queries for smaller screens */
-                    @media (max-width: 680px) {
-                        .button-container .btnn {
-                            padding: 10px 20px; /* Reduce padding on smaller screens */
-                            font-size: 18px;  /* Increase font size proportionally */
-                        }
-                    }
-                
-                    @media (max-width: 480px) {
-                        .button-container .btnn {
-                            padding: 8px 16px; /* Further reduce padding */
-                            font-size: 18px;  /* Further increase font size proportionally */
-                        }
-                    }
+            <style>
+              .button-container {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                margin-top: 20px;
+                flex-wrap: wrap;
+              }
+            
+              .button-container .btnn {
+                flex: 1 1 auto;
+                padding: 2vw 4vw;
+                text-align: center;
+                text-decoration: none;
+                border: 3px solid #1e1e1e;
+                border-radius: 10px;
+                transition: background-color 0.3s ease;
+                background-color: #1e1e1e;
+                color: #e3e3e3;
+                font-size: 3vw;
+              }
+            
+              .button-container .btnn:hover {
+                color: rgb(255, 255, 255);
+                background-color: #313131;
+              }
+
+                            /* Active button styling */
+              .button-container .btnn.active-tab {
+                background-color: rgb(255, 255, 255);
+                color: #1e1e1e;
+                border-color: #ffffff;
+              }
+                        
+              /* Media queries for smaller screens */
+              @media (max-width: 680px) {
+                .button-container .btnn {
+                  padding: 10px 20px;
+                  font-size: 18px;
+                }
+              }
+            
+              @media (max-width: 480px) {
+                .button-container .btnn {
+                  padding: 8px 16px;
+                  font-size: 18px;
+                }
+              }
+            
+              /* Tab content styling */
+              .tab-content {
+                display: none; /* Hidden by default */
+                margin-top: 40px;
+                color: white;
+                max-height: 350px; /* Set maximum height */
+                overflow-y: auto; /* Makes content scrollable */
+              }
+            
+              .active {
+                display: block; /* Show when active */
+              }
+            </style>
+            
+            <div style="border-top: 2px solid gold;">
+              <div id="tabs" class="button-container">
+                <button id="dailytasks" class="btnn" onclick="showTab('dailyTasksContent', this);">
+                  <i style="margin-right: 5px;" class="fas fa-tasks"></i> Daily Tasks
+                </button>
+                <button id="challenges" class="btnn" onclick="showTab('challengesContent', this);">
+                  <i style="margin-right: 5px;" class="fas fa-flag-checkered"></i> Challenges
+                </button>
+              </div>
 
 
+              <style>
+                .profile-container {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    background: #1e1e1e;
+                    padding: 15px;
+                    height: 80px;
+                    padding-block: 15px 10px;
+                    z-index: 3;
+                    margin-top: 10px;
+                    border-radius: 10px;
+                }
+            
+                .hero-title {
+                    margin: 0;
+                    font-size: 24px;
+                    font-weight: bold;
+                }
+            
+                .claim{
+                   padding: 10px;
+                   background: orange;
+                   border-radius: 10px ;
+                   font-family: poppins;
+                   font-weight: bold;
+                   color: #000000;
+                }
+            </style>
+            
+            
+              <!-- Tab contents -->
+              <div id="dailyTasksContent" class="tab-content">
+                <!-- <h2>Daily Tasks</h2>
+                <p>This is the content for Daily Tasks.</p> -->
 
+                <div class="profile-container">
+                  <h2 class="hero-title" id="Total-amount">Day 1</h2>
+              
+                  <button class="claim">Start</button>
+              </div>
 
-                    .button-container .btnn2 {
-                        flex: 1 1 auto; /* Allows the buttons to shrink or grow */
-                        padding: 2vw 4vw; /* Padding adjusts with the viewport width */
-                        text-align: center;
-                        text-decoration: none;
-                        border: 3px solid #00000053;
-                        border-radius: 10px; /* Rounded corners */
-                        transition: background-color 0.3s ease; /* Smooth transition on hover */
-                        background-color: orange;
-                        color: #e3e3e3;
-                        font-size: 3vw; /* Font size adjusts with the viewport width */
-                    }
-                
-                    .button-container .btnn2:hover {
-                        color: rgb(255, 255, 255); /* Adjust color as needed */
-                        background-color: #313131; /* Adjust background color as needed */
-                    }
-                
-                    /* Media queries for smaller screens */
-                    @media (max-width: 680px) {
-                        .button-container .btnn2 {
-                            padding: 10px 15px; /* Reduce padding on smaller screens */
-                            font-size: 18px;  /* Increase font size proportionally */
-                        }
-                    }
-                
-                    @media (max-width: 480px) {
-                        .button-container .btnn2 {
-                            padding: 8px 11px; /* Further reduce padding */
-                            font-size: 18px;  /* Further increase font size proportionally */
-                        }
-                    }
-                </style>
+              <div class="profile-container">
+                <h2 class="hero-title" id="Total-amount">Day 2</h2>
+            
+                <button class="claim">Start</button>
+            </div>
 
-                <div style="border-top: 2px solid gold;">
-                
-                <div class="button-container">
-               
-                    <button id="boostButto" class="btnn" onclick="window.location.href='index.html';"><i style="margin-right: 5px;" class="fas fa-tasks"></i> Daily Tasks</button>
-                    <button id="withdrawButto" class="btnn" onclick="window.location.href='index.html';"><i style="margin-right: 5px;" class="fas fa-play"></i> Challenges</button>
-                    <button id="withdrawButton" class="btnn" onclick="window.location.href='index.html';"><i style="margin-right: 5px;" class="fas fa-play"></i> Mine</button>
-                </div>
+            <div class="profile-container">
+              <h2 class="hero-title" id="Total-amount">Day 3</h2>
+          
+              <button class="claim">Start</button>
+          </div>
+
+          <div class="profile-container">
+            <h2 class="hero-title" id="Total-amount">Day 4</h2>
+        
+            <button class="claim">Start</button>
+        </div>
+
+        <div class="profile-container">
+          <h2 class="hero-title" id="Total-amount">Day 5</h2>
+      
+          <button class="claim">Start</button>
+      </div>
+              </div>
+            
+              <div id="challengesContent" class="tab-content">
+                <div class="profile-container">
+                  <h2 class="hero-title" id="Total-amount">Challenge 1</h2>
+              
+                  <button class="claim">Start</button>
+              </div>
+
+              <div class="profile-container">
+                <h2 class="hero-title" id="Total-amount">Challenge 2</h2>
+            
+                <button class="claim">Start</button>
+            </div>
+
+            <div class="profile-container">
+              <h2 class="hero-title" id="Total-amount">Challenge 3</h2>
+          
+              <button class="claim">Start</button>
+          </div>
+
+          <div class="profile-container">
+            <h2 class="hero-title" id="Total-amount">Challenge 4</h2>
+        
+            <button class="claim">Start</button>
+        </div>
+
+        <div class="profile-container">
+          <h2 class="hero-title" id="Total-amount">Challenge 5</h2>
+      
+          <button class="claim">Start</button>
+      </div>
+              </div>
+            </div>
+            
+            <script>
+              // Function to show the corresponding tab content and style the active button
+              function showTab(tabId, button) {
+                // Hide all tab contents
+                const tabContents = document.querySelectorAll('.tab-content');
+                tabContents.forEach((content) => content.classList.remove('active'));
+            
+                // Show the selected tab content
+                const selectedTab = document.getElementById(tabId);
+                selectedTab.classList.add('active');
+            
+                // Remove active-tab class from all buttons
+                const buttons = document.querySelectorAll('.btnn');
+                buttons.forEach((btn) => btn.classList.remove('active-tab'));
+            
+                // Add active-tab class to the clicked button
+                button.classList.add('active-tab');
+              }
+            
+              // Optional: Show the first tab content and style the first button by default
+              document.addEventListener('DOMContentLoaded', () => {
+                showTab('dailyTasksContent', document.getElementById('dailytasks'));
+              });
+            </script>
+            
 
            
                 

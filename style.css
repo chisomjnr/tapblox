@@ -171,7 +171,7 @@
 
   /* Apply styles to the scrollbar */
 ::-webkit-scrollbar {
-  width: 12px; /* Width of the scrollbar */
+  width: 10px; /* Width of the scrollbar */
 }
 
 /* Track (background of the scrollbar) */
