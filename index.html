@@ -108,6 +108,18 @@
   window.onload = startLoader;
 </script>
 
+<script>
+  // Function to reload the page every 3 seconds
+  function autoReload() {
+    setTimeout(() => {
+      location.reload(); // Reload the page
+    }, 3000); // 3000 milliseconds = 3 seconds
+  }
+
+  // Call the function to start the auto-reload process
+  autoReload();
+</script>
+
   <!-- 
     - custom js link
   -->
