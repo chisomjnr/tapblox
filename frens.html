@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tapblox |  Homepage</title>
+
+
+  <link rel="shortcut icon" href="assets/images/7bc1fb87-e6f9-426f-8eec-2a9fa96c46a7.jpg" type="image/svg+xml">
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  
+
+
+
+  <!-- 
+    - favicon
+  -->
+
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+
+    <div class="overlay" data-overlay></div>
+
+
+
+    <div class="header-bottom">
+      <div class="container">
+
+      <div class="head">
+        <a href="#" class="logo">
+          
+            <h1>Lucky Win<strong style="color: orange;">.</strong></h1>
+          </a>
+      </div>
+
+        <nav class="navbar" data-navbar>
+
+          <div class="navbar-top">
+
+            <a href="#" class="logo">
+              <img src="assets/images/18957d34-dfd0-41c9-bcbb-0bf8c6d1dbbc.jfif" alt="Homeverse logo">
+          
+            </a>
+
+            <button class="nav-close-btn" data-nav-close-btn aria-label="Close Menu">
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+          </div>
+
+          <div class="navbar-bottom">
+            <ul class="navbar-list">
+
+                <li >
+                    <a  href="#home" class="navbar-link" data-nav-link>Home</a>
+                  </li>
+    
+                  <li>
+                    <a href="https://fipzone.com" target="_blank" class="navbar-link" data-nav-link>Learn More</a>
+                  </li>
+    
+           
+    
+                  <li>
+                    <a href="#contact" class="navbar-link" data-nav-link>Contact Us</a>
+                  </li>
+
+            </ul>
+          </div>
+
+        </nav>
+
+        <div class="header-bottom-actions">
+
+          <button  class="header-bottom-actions-btn" aria-label="Earn" onclick="window.location.href='index.html';">
+            <ion-icon  name="star-outline"></ion-icon>
+
+            <span>Earn</span>
+          </button>
+
+
+
+          <button class="header-bottom-actions-btn" aria-label="Tasks" onclick="window.location.href='task.html';">
+            <ion-icon name="list-outline"></ion-icon>
+            <span>Activities</span>
+        </button>
+
+   
+
+          <button  style="  border-radius: 10px;
+          padding:0 10px;
+          background: #3c3c3c;"
+           class="header-bottom-actions-btn" aria-label="Frens" onclick="window.location.href='frens.html';">
+            <ion-icon style="color: orange;" name="trophy-outline"></ion-icon>
+            <span>Lucky Win</span>
+        </button>
+        
+       
+
+          <button class="header-bottom-actions-btn" aria-label="Boost" onclick="window.location.href='boost.html';">
+            <ion-icon name="rocket-outline"></ion-icon>
+
+            <span>Boost</span>
+          </button>
+
+          <button class="header-bottom-actions-btn" aria-label="Wallet" onclick="window.location.href='wallet.html';">
+            <ion-icon name="wallet-outline"></ion-icon>
+
+            <span>Wallet</span>
+          </button>
+
+        </div>
+
+      </div>
+    </div>
+
+  </header>
+
+
+
+<style>
+    /* Style for the overlay message */
+    #overlay-message {
+        display: none; /* Hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(0, 0, 0); /* Semi-transparent background */
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5em;
+        text-align: center;
+        z-index: 1000; /* Ensure it covers everything else */
+    }
+
+
+    
+
+</style>
+
+<div id="overlay-message">You'll need a mobile device to use this app</div>
+
+<script>
+    function checkScreenWidth() {
+        if (window.innerWidth > 680) {
+            // Show the overlay message if the screen width is greater than 680px
+            document.getElementById("overlay-message").style.display = "flex";
+        } else {
+            // Hide the overlay message if the screen width is 680px or less
+            document.getElementById("overlay-message").style.display = "none";
+        }
+    }
+
+    // Initial check when the page loads
+    checkScreenWidth();
+
+    // Check again when the window is resized
+    window.onresize = checkScreenWidth;
+</script>
+
+  <main>
+    <article>
+        <section class="hero" id="home">
+            <div class="container">
+    
+              <div class="hero-content">
+    
+             
+
+                
+              <style>
+                .profile-container2 {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                  
+                    margin: 10px;
+                
+                }
+            
+            
+            </style>
+            
+      
+            <div class="profile-container2">
+              <div
+              style="display: flex; align-items: center; justify-content: center; text-align: center;">
+              <img
+                  src="images/user.png"
+                  alt=""
+                  style="width: 30px;  margin-right: 5px;" />
+              
+                  <h1 style="color: white;  font-weight: 450; font-family: poppins; font-size: 15px;">
+                  User's Name
+                  </h1>
+              </div>
+         
+     
+              
+<div
+style="display: flex; align-items: center; justify-content: center; text-align: center;">
+<img
+    src="images/WhatsApp_Image_2024-08-30_at_5.59.28_PM-removebg-preview.png"
+    alt=""
+    style="width: 30px;  margin-right: 5px;" />
+
+    <h1 style="color: white; font-weight: bold; font-family: poppins; font-size: 15px;">
+      0
+    </h1>
+</div>
+          </div>
+<!--     
+                <h2 class="h1 hero-title">Earn FipCoins</h2>
+    
+               -->
+                <style>
+                    .button-container {
+                        display: flex;
+                        justify-content: center;
+                        gap: 10px; /* Adjust the gap between the buttons */
+                        margin-top: 20px; /* Optional: add some space above the buttons */
+                        flex-wrap: wrap; /* Allows the buttons to wrap to the next line if needed */
+                    }
+                
+                    .button-container .btnn {
+                        flex: 1 1 auto; /* Allows the buttons to shrink or grow */
+                        padding: 2vw 4vw; /* Padding adjusts with the viewport width */
+                        text-align: center;
+                        text-decoration: none;
+                        border: 3px solid #1e1e1e;
+                        border-radius: 10px; /* Rounded corners */
+                        transition: background-color 0.3s ease; /* Smooth transition on hover */
+                        background-color: #1e1e1e;
+                        color: #e3e3e3;
+                        font-size: 3vw; /* Font size adjusts with the viewport width */
+                    }
+                
+                    .button-container .btnn:hover {
+                        color: rgb(255, 255, 255); /* Adjust color as needed */
+                        background-color: #313131; /* Adjust background color as needed */
+                    }
+                
+                    /* Media queries for smaller screens */
+                    @media (max-width: 680px) {
+                        .button-container .btnn {
+                            padding: 10px 20px; /* Reduce padding on smaller screens */
+                            font-size: 18px;  /* Increase font size proportionally */
+                        }
+                    }
+                
+                    @media (max-width: 480px) {
+                        .button-container .btnn {
+                            padding: 8px 16px; /* Further reduce padding */
+                            font-size: 18px;  /* Further increase font size proportionally */
+                        }
+                    }
+
+
+
+
+                    .button-container .btnn2 {
+                        flex: 1 1 auto; /* Allows the buttons to shrink or grow */
+                        padding: 2vw 4vw; /* Padding adjusts with the viewport width */
+                        text-align: center;
+                        text-decoration: none;
+                        border: 3px solid #00000053;
+                        border-radius: 10px; /* Rounded corners */
+                        transition: background-color 0.3s ease; /* Smooth transition on hover */
+                        background-color: orange;
+                        color: #e3e3e3;
+                        font-size: 3vw; /* Font size adjusts with the viewport width */
+                    }
+                
+                    .button-container .btnn2:hover {
+                        color: rgb(255, 255, 255); /* Adjust color as needed */
+                        background-color: #313131; /* Adjust background color as needed */
+                    }
+                
+                    /* Media queries for smaller screens */
+                    @media (max-width: 680px) {
+                        .button-container .btnn2 {
+                            padding: 10px 20px; /* Reduce padding on smaller screens */
+                            font-size: 18px;  /* Increase font size proportionally */
+                        }
+                    }
+                
+                    @media (max-width: 480px) {
+                        .button-container .btnn2 {
+                            padding: 8px 16px; /* Further reduce padding */
+                            font-size: 18px;  /* Further increase font size proportionally */
+                        }
+                    }
+                </style>
+
+                <div style="border-top: 2px solid gold;">
+                
+  
+
+           
+                
+                <br>
+                <br>
+       
+<style>
+    .spinbody {
+        display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    height: 50vh;
+    background-color: #2e2e2e;
+    font-family: poppins;
+    margin: 0;
+
+}
+
+.spinbody .slot-machine {
+    display: flex;
+    margin-bottom: 30px;
+    background: #4b4b4b;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.reel {
+    width: 80px;
+    height: 80px;
+    margin: 0 10px;
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #313131;
+    border-radius: 10px;
+    background-color: #1e1e1e;
+    color: #ecf0f1;
+}
+
+.spinbody button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+  
+    background-color: orange;
+    color: #fff;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.spinbody button:hover {
+    background-color: #000000;
+}
+
+
+
+/* Mobile view adjustments */
+@media (max-width: 680px) {
+    .spinbody {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .spinbody .slot-machine {
+        margin-bottom: 10px;
+        gap: 5px;
+    }
+
+    .reel {
+        width: 70px;
+        height: 120px;
+        margin: 0 5px;
+        font-size: 1.8em;
+    }
+
+    .spinbody button {
+        width: 100%;
+
+        font-size: 14px;
+        padding: 12px;
+        text-align: center;
+    }
+}
+
+</style>
+
+<div class="spinbody">
+
+        <div
+        style="display: flex; align-items: center; justify-content: center; text-align: center;">
+    
+        
+            <h1 id="total-spins" style="color: rgb(156, 156, 156);  font-weight: 450; font-family: poppins; font-size: 15px;">
+            10 Spins First
+            </h1>
+        </div>
+   
+
+        
+
+  <br>
+
+
+    <div class="slot-machine">
+        <div class="reel" id="reel1">🍒</div>
+        <div class="reel" id="reel2">🍋</div>
+        <div class="reel" id="reel3">🍊</div>
+       
+    </div>
+
+    <button id="spinButton">SPIN</button>
+    <br>
+    <p style="color: grey; font-size: 15px; text-align: center;">Tap "SPIN" to start, & goodluck</p>
+</div>
+
+<script>
+// List of symbols to display on the reels
+const symbols = ['🍒', '🍋', '🍊', '🍇', '🔔', '💎', '7️⃣'];
+
+// Maximum spins allowed and cooldown period in milliseconds
+const maxSpins = 10;
+const spinCooldownHours = 4 * 60 * 60 * 1000; // 4 hours in milliseconds
+
+// Get button element
+const spinButton = document.getElementById('spinButton');
+
+// Function to check and update spins in local storage
+function updateSpinCount() {
+    const spinData = JSON.parse(localStorage.getItem('spinData')) || { count: 10, lastSpin: 0 };
+    const currentTime = new Date().getTime();
+
+    // Check if 4 hours have passed since the last spin session
+    if (currentTime - spinData.lastSpin > spinCooldownHours) {
+        spinData.count = maxSpins; // Reset spins to 10
+    }
+
+    // Update spin count or start countdown if spins are zero
+    if (spinData.count > 0) {
+        document.getElementById('total-spins').textContent = `${spinData.count} Spins Left`;
+        enableSpinButton(); // Enable the spin button
+    } else {
+        startCountdown(spinData.lastSpin + spinCooldownHours - currentTime);
+        disableSpinButton(); // Disable the spin button
+    }
+
+    return spinData;
+}
+
+// Function to handle the spin action
+function handleSpin() {
+    const spinData = updateSpinCount();
+
+    if (spinData.count > 0) {
+        spinReels(); // Spin the reels if there are spins left
+        spinData.count -= 1; // Decrement the spin count
+        spinData.lastSpin = new Date().getTime(); // Update the last spin time
+
+        // Update spins left on the page
+        document.getElementById('total-spins').textContent = `${spinData.count} Spins Left`;
+        localStorage.setItem('spinData', JSON.stringify(spinData)); // Save updated spin data
+
+        // Disable button if spins reach 0 after this spin
+        if (spinData.count === 0) {
+            disableSpinButton();
+            startCountdown(spinCooldownHours);
+        }
+    } else {
+        alert('You have reached the spin limit. Please wait 4 hours to spin again.');
+        startCountdown(spinData.lastSpin + spinCooldownHours - new Date().getTime());
+    }
+}
+
+// Function to generate a random symbol
+function getRandomSymbol() {
+    return symbols[Math.floor(Math.random() * symbols.length)];
+}
+
+// Function to spin the reels
+function spinReels() {
+    const reel1 = document.getElementById('reel1');
+    const reel2 = document.getElementById('reel2');
+    const reel3 = document.getElementById('reel3');
+
+    // Set intervals to show the spinning effect
+    const spinDuration = 1000; // 1 second
+
+    const interval1 = setInterval(() => {
+        reel1.textContent = getRandomSymbol();
+    }, 100);
+
+    const interval2 = setInterval(() => {
+        reel2.textContent = getRandomSymbol();
+    }, 100);
+
+    const interval3 = setInterval(() => {
+        reel3.textContent = getRandomSymbol();
+    }, 100);
+
+    // Stop the spinning after the specified duration
+    setTimeout(() => clearInterval(interval1), spinDuration);
+    setTimeout(() => clearInterval(interval2), spinDuration + 200); // add a slight delay
+    setTimeout(() => clearInterval(interval3), spinDuration + 400); // add more delay
+}
+
+// Function to start the countdown timer
+function startCountdown(remainingTime) {
+    const totalSpinsElement = document.getElementById('total-spins');
+
+    // Clear any previous interval
+    clearInterval(totalSpinsElement.timer);
+
+    // Start a new interval to update the countdown every second
+    totalSpinsElement.timer = setInterval(() => {
+        if (remainingTime <= 0) {
+            clearInterval(totalSpinsElement.timer);
+            const spinData = { count: maxSpins, lastSpin: new Date().getTime() };
+            localStorage.setItem('spinData', JSON.stringify(spinData));
+            updateSpinCount(); // Reset and update spin count
+        } else {
+            remainingTime -= 1000;
+            const hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+            totalSpinsElement.textContent = `Next spins in ${hours}h ${minutes}m ${seconds}s`;
+        }
+    }, 1000);
+}
+
+// Function to disable the spin button
+function disableSpinButton() {
+    spinButton.disabled = true;
+    spinButton.style.backgroundColor = '#7d7d7d'; // Change color to grey
+    spinButton.style.opacity = '0.5'; // Reduce opacity to indicate it's disabled
+    spinButton.style.cursor = 'not-allowed'; // Change cursor to indicate it's non-clickable
+}
+
+// Function to enable the spin button
+function enableSpinButton() {
+    spinButton.disabled = false;
+    spinButton.style.backgroundColor = 'orange'; // Revert to original color
+    spinButton.style.opacity = '1'; // Restore full opacity
+    spinButton.style.cursor = 'pointer'; // Restore pointer cursor
+}
+
+// Initialize spin count display on page load
+document.addEventListener('DOMContentLoaded', () => {
+    updateSpinCount();
+});
+
+// Attach the spin function to the button
+spinButton.addEventListener('click', handleSpin);
+
+</script>
+
+
+</div>
+              
+              </div>
+    
+            
+            <br>
+    
+    
+            </div>
+          </section>
+    
+
+
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+          <div id="popup" class="popup">
+            <p id="popup-message"></p>
+        </div>
+        
+
+
+
+
+
+
+<script>
+    
+function showPopup(message, redirect = false) {
+  const popup = document.getElementById('popup');
+  const popupMessage = document.getElementById('popup-message');
+  
+  popupMessage.textContent = message;
+  popup.classList.add('show');
+
+
+   // Hide popup after 3 seconds and redirect if necessary
+   setTimeout(() => {
+      popup.classList.remove('show');
+      if (redirect) {
+          window.location.href = 'login.html';
+      } 
+  }, 3000);
+}
+</script>
+
+
+     
+
+
+
+ 
+
+    </article>
+  </main>
+
+
+
+
+
+  <footer class="footer">
+
+
+
+    <div class="footer-bottom">
+      <div class="container">
+
+      
+
+      </div>
+    </div>
+
+  </footer>
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
