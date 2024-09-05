@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tapblox |  Settings</title>
+
+
+  <link rel="shortcut icon" href="assets/images/7bc1fb87-e6f9-426f-8eec-2a9fa96c46a7.jpg" type="image/svg+xml">
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- 
+    - favicon
+  -->
+
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="settings.css">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+
+    <div class="overlay" data-overlay></div>
+
+
+
+    <div class="header-bottom">
+      <div class="container">
+
+      <div class="head">
+        <a id="goBackLink" href="#" class="logo">
+         
+            <h1> <i style="margin-right: 7px; color: orange;" class="fas fa-chevron-left"></i>Theme</h1>
+          </a>
+      </div>
+
+      <script>
+        document.getElementById("goBackLink").addEventListener("click", function(event) {
+            event.preventDefault(); // Prevent the default behavior of the link
+        
+            history.back(); // Go back to the previous page
+        });
+        </script>
+
+        <nav class="navbar" data-navbar>
+
+          <div class="navbar-top">
+
+            <a href="#" class="logo">
+              <img src="assets/images/18957d34-dfd0-41c9-bcbb-0bf8c6d1dbbc.jfif" alt="Homeverse logo">
+          
+            </a>
+
+            <button class="nav-close-btn" data-nav-close-btn aria-label="Close Menu">
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+          </div>
+
+          <div class="navbar-bottom">
+            <ul class="navbar-list">
+
+                <li >
+                    <a  href="#home" class="navbar-link" data-nav-link>Home</a>
+                  </li>
+    
+                  <li>
+                    <a href="https://fipzone.com" target="_blank" class="navbar-link" data-nav-link>Learn More</a>
+                  </li>
+    
+           
+    
+                  <li>
+                    <a href="#contact" class="navbar-link" data-nav-link>Contact Us</a>
+                  </li>
+
+            </ul>
+          </div>
+
+        </nav>
+        <div class="header-bottom-actions">
+
+          <button class="header-bottom-actions-btn" aria-label="Earn" onclick="window.location.href='home.html';">
+            <ion-icon  name="star-outline"></ion-icon>
+
+            <span>Earn</span>
+          </button>
+
+
+
+          <button class="header-bottom-actions-btn" aria-label="Tasks" onclick="window.location.href='task.html';">
+            <ion-icon name="list-outline"></ion-icon>
+            <span>Activities</span>
+        </button>
+
+   
+
+          <button class="header-bottom-actions-btn" aria-label="Frens" onclick="window.location.href='frens.html';">
+            <ion-icon name="trophy-outline"></ion-icon>
+            <span>Lucky Win</span>
+        </button>
+        
+       
+
+          <button class="header-bottom-actions-btn" aria-label="Boost" onclick="window.location.href='boost.html';">
+            <ion-icon name="rocket-outline"></ion-icon>
+
+            <span>Boost</span>
+          </button>
+
+          <button  style="  border-radius: 10px;
+          padding:0 10px;
+          background: #3c3c3c;" class="header-bottom-actions-btn" aria-label="Wallet" onclick="window.location.href='wallet.html';">
+             <ion-icon style="color: orange;"name="wallet-outline"></ion-icon>
+
+            <span>Wallet</span>
+          </button>
+
+        </div>
+
+      </div>
+    </div>
+
+  </header>
+
+
+
+
+
+  <main>
+    <article>
+
+   
+<style>
+    /* Style for the overlay message */
+    #overlay-message {
+        display: none; /* Hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(0, 0, 0); /* Semi-transparent background */
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5em;
+        text-align: center;
+        z-index: 1000; /* Ensure it covers everything else */
+    }
+</style>
+
+<div id="overlay-message">You'll need a mobile device to use this app</div>
+
+<script>
+    function checkScreenWidth() {
+        if (window.innerWidth > 680) {
+            // Show the overlay message if the screen width is greater than 680px
+            document.getElementById("overlay-message").style.display = "flex";
+        } else {
+            // Hide the overlay message if the screen width is 680px or less
+            document.getElementById("overlay-message").style.display = "none";
+        }
+    }
+
+    // Initial check when the page loads
+    checkScreenWidth();
+
+    // Check again when the window is resized
+    window.onresize = checkScreenWidth;
+</script>
+
+
+
+      <section class="hero" id="home">
+        <div class="container">
+
+          <div class="hero-content">
+
+            <style>
+              .profile-container2 {
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                    position: fixed;
+                    bottom: 90px;
+                    background: #000000;
+                    padding: 10px;
+                    
+                    right: 0;
+                    margin: 10px;
+                    border-radius: 10px;
+                    left: 0;
+
+                    padding-block: 15px 10px;
+                  
+                    z-index: 3;
+
+                    border-radius: 10px;
+              
+              }
+          
+          
+          </style>
+          
+    
+        
+            <style>
+                .profile-container {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    position: relative;
+                    background: #1e1e1e00;
+                    border: 1px solid #333333;
+                    padding: 15px;
+                    cursor: pointer;
+                    border-radius: 10px;
+                    margin-bottom: 18px;
+                    transition: .2s;
+                }
+
+                .profile-container:hover {
+                    background: #353535;
+                   
+                }
+            
+                .hero-title {
+                    margin: 0;
+                    font-size: 20px;
+                    font-weight: bold;
+                }
+            
+            
+            </style>
+            
+            <div  onclick="window.location.href='./settings/accountsetting.html';" class="profile-container">
+              <h2 class="hero-title" id="Total-amount"> Dark Mode / Light Mode
+               </h2>
+              <span id="toggle-icon" style="color: white; font-size: 18px;" class="amount-toggle-icon">
+                  <i class="fas fa-chevron-right"></i>
+              </span>
+          </div>
+          
+  
+          <div  onclick="window.location.href='./settings/notification.html';" class="profile-container">
+            <h2 class="hero-title" id="Total-amount"> Theme and Appearance
+            </h2>
+            <span id="toggle-icon" style="color: white; font-size: 18px;" class="amount-toggle-icon">
+                <i class="fas fa-chevron-right"></i>
+            </span>
+        </div>
+
+  
+   
+       
+
+          
+          </div>
+
+       
+
+        </div>
+      </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
+
+
+
+ 
+
+    </article>
+  </main>
+
+
+
+
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
