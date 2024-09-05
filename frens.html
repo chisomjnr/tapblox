@@ -345,9 +345,12 @@ style="display: flex; align-items: center; justify-content: center; text-align: 
 
 .spinbody .slot-machine {
     display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 30px;
     background: #4b4b4b;
     padding: 20px;
+    width: 100%;
     border-radius: 10px;
 }
 
@@ -411,6 +414,27 @@ style="display: flex; align-items: center; justify-content: center; text-align: 
     }
 }
 
+/* Winning effect styles */
+@keyframes winningGlow {
+    0% {
+        box-shadow: 0 0 20px #ffdf00, 0 0 40px #ffdf00, 0 0 60px #ffdf00;
+        background-color: #4b4b4b;
+    }
+    50% {
+        box-shadow: 0 0 40px #ffdf00, 0 0 80px #ffdf00, 0 0 120px #ffdf00;
+        background-color: #fffa8b;
+    }
+    100% {
+        box-shadow: 0 0 20px #ffdf00, 0 0 40px #ffdf00, 0 0 60px #ffdf00;
+        background-color: #4b4b4b;
+    }
+}
+
+.slot-machine.winning {
+    animation: winningGlow 1s ease-in-out 3; /* 1 second animation, 3 times */
+}
+
+
 </style>
 
 <div class="spinbody">
@@ -452,6 +476,7 @@ const spinCooldownHours = 4 * 60 * 60 * 1000; // 4 hours in milliseconds
 
 // Get button element
 const spinButton = document.getElementById('spinButton');
+const slotMachine = document.querySelector('.slot-machine'); // Slot machine element
 
 // Function to check and update spins in local storage
 function updateSpinCount() {
@@ -526,9 +551,28 @@ function spinReels() {
     }, 100);
 
     // Stop the spinning after the specified duration
-    setTimeout(() => clearInterval(interval1), spinDuration);
-    setTimeout(() => clearInterval(interval2), spinDuration + 200); // add a slight delay
-    setTimeout(() => clearInterval(interval3), spinDuration + 400); // add more delay
+    setTimeout(() => {
+        clearInterval(interval1);
+        clearInterval(interval2);
+        clearInterval(interval3);
+        checkForWin(); // Check if the user won after spinning
+    }, spinDuration + 400);
+}
+
+// Function to check if the reels match and trigger the winning effect
+function checkForWin() {
+    const reel1 = document.getElementById('reel1').textContent;
+    const reel2 = document.getElementById('reel2').textContent;
+    const reel3 = document.getElementById('reel3').textContent;
+
+    // Check if all three reels match
+    if (reel1 === reel2 && reel2 === reel3) {
+        slotMachine.classList.add('winning'); // Add winning class for animation
+        setTimeout(() => {
+            slotMachine.classList.remove('winning'); // Remove class after animation ends
+        }, 3000); // Duration should match the CSS animation timing
+        alert('Congratulations! You hit the jackpot! 🎉');
+    }
 }
 
 // Function to start the countdown timer
@@ -588,7 +632,15 @@ spinButton.addEventListener('click', handleSpin);
     
             
             <br>
-    
+            <!-- <div>
+        
+                <div class="button-container">
+                    <button id="withdrawButton" class="btnn" onclick="window.location.href='index.html';"><i style="margin-right: 5px;" class="fas fa-hand-pointer"></i> 300 Taps Left</button>
+                    <button id="boostButto" class="btnn" onclick="window.location.href='index.html';"><i style="margin-right: 5px;" class="fas fa-rocket"></i> Boosters</button>
+                </div>
+                
+                </div> -->
+        
     
             </div>
           </section>
@@ -603,17 +655,86 @@ spinButton.addEventListener('click', handleSpin);
 
 
 
-
-
-
-
-
-          <div id="popup" class="popup">
-            <p id="popup-message"></p>
-        </div>
+          <style>
+            .button-container {
+                display: flex;
+                justify-content: center;
+                gap: 10px; /* Adjust the gap between the buttons */
+                margin-top: 20px; /* Optional: add some space above the buttons */
+                flex-wrap: wrap; /* Allows the buttons to wrap to the next line if needed */
+            }
         
+            .button-container .btnn {
+                flex: 1 1 auto; /* Allows the buttons to shrink or grow */
+                padding: 2vw 4vw; /* Padding adjusts with the viewport width */
+                text-align: center;
+                text-decoration: none;
+                border: 3px solid #1e1e1e;
+                border-radius: 10px; /* Rounded corners */
+                transition: background-color 0.3s ease; /* Smooth transition on hover */
+                background-color: #1e1e1e;
+                color: #e3e3e3;
+                font-size: 3vw; /* Font size adjusts with the viewport width */
+            }
+        
+            .button-container .btnn:hover {
+                color: rgb(255, 255, 255); /* Adjust color as needed */
+                background-color: #313131; /* Adjust background color as needed */
+            }
+        
+            /* Media queries for smaller screens */
+            @media (max-width: 680px) {
+                .button-container .btnn {
+                    padding: 10px 20px; /* Reduce padding on smaller screens */
+                    font-size: 18px;  /* Increase font size proportionally */
+                }
+            }
+        
+            @media (max-width: 480px) {
+                .button-container .btnn {
+                    padding: 8px 16px; /* Further reduce padding */
+                    font-size: 18px;  /* Further increase font size proportionally */
+                }
+            }
 
 
+
+
+            .button-container .btnn2 {
+                flex: 1 1 auto; /* Allows the buttons to shrink or grow */
+                padding: 2vw 4vw; /* Padding adjusts with the viewport width */
+                text-align: center;
+                text-decoration: none;
+                border: 3px solid #00000053;
+                border-radius: 10px; /* Rounded corners */
+                transition: background-color 0.3s ease; /* Smooth transition on hover */
+                background-color: orange;
+                color: #e3e3e3;
+                font-size: 3vw; /* Font size adjusts with the viewport width */
+            }
+        
+            .button-container .btnn2:hover {
+                color: rgb(255, 255, 255); /* Adjust color as needed */
+                background-color: #313131; /* Adjust background color as needed */
+            }
+        
+            /* Media queries for smaller screens */
+            @media (max-width: 680px) {
+                .button-container .btnn2 {
+                    padding: 10px 20px; /* Reduce padding on smaller screens */
+                    font-size: 18px;  /* Increase font size proportionally */
+                }
+            }
+        
+            @media (max-width: 480px) {
+                .button-container .btnn2 {
+                    padding: 8px 16px; /* Further reduce padding */
+                    font-size: 18px;  /* Further increase font size proportionally */
+                }
+            }
+        </style>
+
+     
 
 
 
