@@ -22,7 +22,7 @@
         <div class="content">
           <div class="header">
             <span class="back__btn">
-              <a href="index.html"><i class="ri-arrow-left-line"></i></a>
+              <a id="goBackLink" href="#"><i class="ri-arrow-left-line"></i></a>
             </span>
             <span class="register"> <a href="login.html">Already Have an <strong>Account</strong> </a> </span>
           </div>
@@ -53,3 +53,12 @@
     </div>
   </body>
 </html>
+
+
+<script>
+  document.getElementById("goBackLink").addEventListener("click", function(event) {
+      event.preventDefault(); // Prevent the default behavior of the link
+  
+      history.back(); // Go back to the previous page
+  });
+  </script>

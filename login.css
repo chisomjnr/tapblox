@@ -60,8 +60,9 @@ body {
   }
 
 .header .back__btn a {
-  font-size: 35px;
+  font-size: 25px;
   cursor: pointer;
+
   text-decoration: none;
   color: orange;
 }
@@ -94,7 +95,7 @@ body {
   margin-bottom: 1rem;
   outline: none;
   color: white;
-  border: 1px solid white;
+  border: 1px solid rgb(156, 156, 156);
   border-radius: 5px;
   padding: 0.75rem;
   font-size: 1rem;
@@ -106,15 +107,16 @@ body {
   font-weight: 700;
   margin-bottom: 1.5rem;
   cursor: pointer;
-  color: rgb(148, 148, 148);
+  color: orange;
+  text-decoration: underline;
   
 }
 
 .form__content .submit__btn {
   width: 100%;
   padding: 1rem;
-  background-color: var(--primary-color);
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #1d1d1d;
   font-size: 1rem;
   font-family: poppins;
   border: none;
@@ -151,7 +153,7 @@ body {
 
 .social__icons i {
     /* border: 2px solid black; */
-  font-size: 30px;
+  font-size: 25px;
   /* padding:10px;
   border-radius: 10px; */
   color: white;
