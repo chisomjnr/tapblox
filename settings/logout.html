@@ -263,7 +263,7 @@
             
             </style>
             
-            <div  onclick="window.location.href='./settings/accountsetting.html';" class="profile-container">
+            <div   onclick="logout()"" class="profile-container">
               <h2 class="hero-title" id="Total-amount"> Logout
                </h2>
               <span id="toggle-icon" style="color: #cb0d0d; font-size: 18px;" class="amount-toggle-icon">
@@ -323,6 +323,66 @@
     </article>
   </main>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!--
+  Login Functionality
+-->
+
+<script>
+    // Get the logged-in user information from local storage
+   
+   const existingUsers = JSON.parse(localStorage.getItem('users') || '[]');
+   const loggedInUser = existingUsers.find(user => user.isLoggedIn); // Assuming you have a way to flag logged in users
+   
+   if (loggedInUser) {
+       // Fetch the user's first name and convert it to uppercase
+       const firstName = loggedInUser.firstname.toUpperCase();
+   
+       // Update the welcome message with the user's first name
+       document.getElementById('user-firstname').textContent = firstName;
+   } else {
+       // If no logged-in user is found, redirect to the login page
+       window.location.href = 'login.html';
+   }
+   
+   
+   
+   </script>
+   
+
+   
 
 
 

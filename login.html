@@ -19,41 +19,65 @@
   <body>
     <div class="container">
       <div class="container__left">
-        <div class="content">
-          <div class="header">
-            <span class="back__btn">
-              <a id="goBackLink" href="#"><i class="ri-arrow-left-line"></i></a>
-            </span>
-            <span class="register"> <a href="signup.html">Create an <strong>Account</strong> </a> </span>
+          <div class="content">
+              <div class="header">
+                  <span class="back__btn">
+                      <a id="goBackLink" href="#"><i class="ri-arrow-left-line"></i></a>
+                  </span>
+                  <span class="register">
+                      <a href="signup.html">Create an <strong>Account</strong></a>
+                  </span>
+              </div>
+              <div class="form__content">
+                  <img src="./assets/images/WhatsApp_Image_2024-08-17_at_5.26.37_PM-removebg-preview.png" width="40" alt="">
+                  <h3 class="form__title">Login to your <strong style="background: linear-gradient(45deg, orange, orange);
+                  -webkit-background-clip: text; color: transparent; text-shadow: 0 2px 70px rgba(255, 238, 0, 0.615);">Tapblox</strong> account to continue</h3>
+                  <p class="form__subtitle">
+                      Welcome Back! Please fill your email and password to login to your account.
+                  </p>
+                  <form id="login-form">
+                      <input type="email" id="email" placeholder="Email" required />
+                      <input type="password" id="password" placeholder="Password" required />
+                      <p class="forgot__password">Forgot your password</p>
+                      <button class="submit__btn" type="submit">Login Now</button>
+                  </form>
+                  <span class="bottom__line"></span>
+                  <p class="footer__title">You can also login with:</p>
+                  <div class="social__icons">
+                      <i class="ri-facebook-box-fill"></i>
+                      <i class="ri-google-fill"></i>
+                      <i class="ri-twitter-fill"></i>
+                  </div>
+              </div>
           </div>
-          <div class="form__content">
-            <img src="./assets/images/WhatsApp_Image_2024-08-17_at_5.26.37_PM-removebg-preview.png" width="40" alt="">
-            <h3 class="form__title">Login to your <strong style="   background: linear-gradient(45deg,  orange,  orange);
-                -webkit-background-clip: text; /* Clip the text to the background */
-                color: transparent; 
-                text-shadow: 0 2px 70px rgba(255, 238, 0, 0.615);" >Tapblox</strong> account to continue</h3>
-            <p class="form__subtitle">
-              Welcome Back! Please fill your username and password to login to your
-              account.
-            </p>
-            <form action="">
-              <input type="text" placeholder="Username" />
-              <input type="password" placeholder="Password" />
-              <p class="forgot__password">Forgot your password</p>
-              <button class="submit__btn" type="submit">Login Now</button>
-            </form>
-            <span class="bottom__line"></span>
-            <p class="footer__title">You can also login with:</p>
-            <div class="social__icons">
-              <i class="ri-facebook-box-fill"></i>
-              <i class="ri-google-fill"></i>
-              <i class="ri-twitter-fill"></i>
-            </div>
-          </div>
-        </div>
       </div>
   
-    </div>
+      <style>
+          .popup {
+              position: fixed;
+              bottom: -100px;
+              left: 50%;
+              transform: translateX(-50%);
+              background-color: #007bff;
+              color: white;
+              padding: 15px 20px;
+              font-family: poppins;
+              border-radius: 5px;
+              box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+              opacity: 0;
+              transition: bottom 0.5s, opacity 0.5s;
+          }
+  
+          .popup.show {
+              bottom: 20px;
+              opacity: 1;
+          }
+      </style>
+  
+      <div id="popup" class="popup">
+          <p id="popup-message"></p>
+      </div>
+  
   </body>
 </html>
 
@@ -64,3 +88,61 @@
       history.back(); // Go back to the previous page
   });
   </script>
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+  Login Functionality
+-->
+
+<script>
+  document.getElementById('login-form').addEventListener('submit', function (e) {
+      e.preventDefault(); // Prevent form submission
+
+      // Get input values
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      // Retrieve existing users from localStorage
+      const users = JSON.parse(localStorage.getItem('users')) || [];
+
+      const popup = document.getElementById('popup');
+      const popupMessage = document.getElementById('popup-message');
+
+      // Check if the user exists with matching email and password
+      const user = users.find(user => user.email === email && user.password === password);
+
+      if (user) {
+          // Show success message if login is successful
+          popupMessage.textContent = 'Login successful';
+          popup.classList.add('show');
+
+          // Store the logged-in user's information (or any session management logic)
+          localStorage.setItem('userDetails', JSON.stringify(user));
+
+          // Hide popup and redirect after 3 seconds
+          setTimeout(function () {
+              popup.classList.remove('show');
+              window.location.href = 'index.html';
+          }, 3000);
+      } else {
+          // Show error message if user does not exist or credentials are incorrect
+          popupMessage.textContent = 'User does not exist';
+          popup.classList.add('show');
+
+          // Hide popup after 3 seconds
+          setTimeout(function () {
+              popup.classList.remove('show');
+          }, 3000);
+      }
+  });
+</script>

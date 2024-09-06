@@ -19,38 +19,65 @@
   <body>
     <div class="container">
       <div class="container__left">
-        <div class="content">
-          <div class="header">
-            <span class="back__btn">
-              <a id="goBackLink" href="#"><i class="ri-arrow-left-line"></i></a>
-            </span>
-            <span class="register"> <a href="login.html">Already Have an <strong>Account</strong> </a> </span>
+          <div class="content">
+              <div class="header">
+                  <span class="back__btn">
+                      <a id="goBackLink" href="#"><i class="ri-arrow-left-line"></i></a>
+                  </span>
+                  <span class="register">
+                      <a href="login.html">Already Have an <strong>Account</strong></a>
+                  </span>
+              </div>
+              <div class="form__content">
+                  <img src="./assets/images/WhatsApp_Image_2024-08-17_at_5.26.37_PM-removebg-preview.png" width="40" alt="">
+                  <h3 class="form__title">Create your <strong style="background: linear-gradient(45deg, orange, orange);
+                  -webkit-background-clip: text; color: transparent; text-shadow: 0 2px 70px rgba(255, 238, 0, 0.615);">Tapblox</strong> account & get started</h3>
+                  <p class="form__subtitle">
+                      Welcome! Please fill all your required details below to create a new account.
+                  </p>
+                  <form id="signup-form">
+                      <input type="text" id="first-name" placeholder="Your First Name" required />
+                      <input type="text" id="last-name" placeholder="Your Last Name" required />
+                      <input type="email" id="email" placeholder="Email" required />
+                      <input type="password" id="password" placeholder="Password" required />
+                      <button class="submit__btn" type="submit">Get Started <i style="margin-left: 7px;" class="fas fa-arrow-right"></i></button>
+                  </form>
+              </div>
           </div>
-          <div class="form__content">
-            <img src="./assets/images/WhatsApp_Image_2024-08-17_at_5.26.37_PM-removebg-preview.png" width="40" alt="">
-            <h3 class="form__title">Create your <strong style="   background: linear-gradient(45deg,  orange,  orange);
-                -webkit-background-clip: text; /* Clip the text to the background */
-                color: transparent; 
-                text-shadow: 0 2px 70px rgba(255, 238, 0, 0.615);" >Tapblox</strong> account & get started</h3>
-            <p class="form__subtitle">
-              Welcome! Please fill all your required details below to create a new account.
-            </p>
-            <form action="">
-                <input type="text" placeholder="Your First Name" />
-                <input type="text" placeholder="Your Last Name" />
-                <input type="email" placeholder="Email" />
-        
-
-              <input type="password" placeholder="Password" />
-            
-              <button class="submit__btn" type="submit">Next Step <i style="margin-left: 7px;" class="fas fa-arrow-right"></i></button>
-            </form>
-     
-          </div>
-        </div>
       </div>
-      
-    </div>
+  
+      <style>
+          .popup {
+              position: fixed;
+              bottom: -100px;
+              left: 50%;
+              transform: translateX(-50%);
+              background-color: #007bff;
+              color: white;
+              padding: 15px 20px;
+              font-family: poppins;
+              border-radius: 5px;
+              box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+              opacity: 0;
+              transition: bottom 0.5s, opacity 0.5s;
+          }
+  
+          .popup.show {
+              bottom: 20px;
+              opacity: 1;
+          }
+      </style>
+  
+      <div id="popup" class="popup">
+          <p id="popup-message"></p>
+      </div>
+  
+     
+  </div>
+  
+  
+ 
+  
   </body>
 </html>
 
@@ -62,3 +89,63 @@
       history.back(); // Go back to the previous page
   });
   </script>
+
+
+
+
+
+
+
+
+
+
+
+<!--
+  Login Functionality
+-->
+ <script>
+  document.getElementById('signup-form').addEventListener('submit', function (e) {
+      e.preventDefault(); // Prevent form submission
+
+      // Get input values
+      const firstName = document.getElementById('first-name').value;
+      const lastName = document.getElementById('last-name').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      // Retrieve existing users from localStorage
+      let users = JSON.parse(localStorage.getItem('users')) || [];
+
+      const popup = document.getElementById('popup');
+      const popupMessage = document.getElementById('popup-message');
+
+      // Check if the email already exists
+      const userExists = users.some(user => user.email === email);
+
+      if (userExists) {
+          // Show error popup message if user already exists
+          popupMessage.textContent = 'User already exists';
+          popup.classList.add('show');
+
+          // Hide popup after 3 seconds
+          setTimeout(function () {
+              popup.classList.remove('show');
+          }, 3000);
+      } else {
+          // Add new user to the users array
+          users.push({ firstName, lastName, email, password });
+          // Save updated users array to localStorage
+          localStorage.setItem('users', JSON.stringify(users));
+
+          // Show success popup message
+          popupMessage.textContent = 'Account created successfully';
+          popup.classList.add('show');
+
+          // Redirect to index.html after 3 seconds
+          setTimeout(function () {
+              popup.classList.remove('show');
+              window.location.href = 'login.html';
+          }, 3000);
+      }
+  });
+</script>

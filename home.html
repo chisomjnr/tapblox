@@ -500,6 +500,54 @@ function showPopup(message, redirect = false) {
 
 
 
+
+
+
+
+
+
+<!--
+  Login Functionality
+-->
+
+<script>
+    // Function to check if the user is logged in
+    function checkUserLoggedIn() {
+        // Retrieve the user data from localStorage
+        const loggedUser = JSON.parse(localStorage.getItem('userDetails'));
+
+        // Check if user data exists in localStorage
+        if (!loggedUser) {
+            // If no user is logged in, redirect to login page
+            window.location.href = 'login.html';
+        }
+    }
+
+    // Call the function to check login status when the page loads
+    checkUserLoggedIn();
+
+    // Logout function
+    function logout() {
+        // Remove user details from localStorage to log the user out
+        localStorage.removeItem('userDetails');
+
+        // Redirect to login page after logging out
+        window.location.href = 'login.html';
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <!-- 
     - custom js link
   -->

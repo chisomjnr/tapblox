@@ -126,6 +126,7 @@ body {
 }
 .form__content .submit__btn:hover {
   background-color: var(--primary-color-dark);
+  color: orange;
 }
 
 .form__content .bottom__line {

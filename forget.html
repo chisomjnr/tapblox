@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./assets/images/letter-f (3).png" type="image/svg+xml">
+    <link rel="stylesheet" href="login.css" />
+    <title>Tapblox | Forget Password</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="container__left">
+          <div class="content">
+              <div class="header">
+                  <span class="back__btn">
+                      <a id="goBackLink" href="#"><i class="ri-arrow-left-line"></i></a>
+                  </span>
+                  <span class="register">
+               
+                  </span>
+              </div>
+              <div class="form__content">
+                  <img src="./assets/images/WhatsApp_Image_2024-08-17_at_5.26.37_PM-removebg-preview.png" width="40" alt="">
+                  <h3 class="form__title">Forgot your password?</h3>
+                  <p class="form__subtitle">
+                      That's fine, just input your email and we'll send you a reset mail.
+                  </p>
+                  <form id="login-form">
+                      <input type="email" id="email" placeholder="Email" required />
+                      
+                      <button class="submit__btn" type="submit">Submit</button>
+                  </form>
+              
+              </div>
+          </div>
+      </div>
+  
+      <style>
+          .popup {
+              position: fixed;
+              bottom: -100px;
+              left: 50%;
+              transform: translateX(-50%);
+              background-color: #007bff;
+              color: white;
+              padding: 15px 20px;
+              font-family: poppins;
+              border-radius: 5px;
+              box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+              opacity: 0;
+              transition: bottom 0.5s, opacity 0.5s;
+          }
+  
+          .popup.show {
+              bottom: 20px;
+              opacity: 1;
+          }
+      </style>
+  
+      <div id="popup" class="popup">
+          <p id="popup-message"></p>
+      </div>
+  </div>
+  
+  
+  </body>
+</html>
+
+<script>
+  document.getElementById("goBackLink").addEventListener("click", function(event) {
+      event.preventDefault(); // Prevent the default behavior of the link
+  
+      history.back(); // Go back to the previous page
+  });
+  </script>
+
+
+
+
+
+
+
+

@@ -414,12 +414,10 @@ font-size: 16px;
             </span>
         </div>
 
-        <div  onclick="window.location.href='./settings/logout.html';" class="profile-container" data-title="Logout / Deactivate Account">
-            <h2 class="hero-title" id="Total-amount"><i style="margin-right: 3px; color: orange;" class="fas fa-sign-out-alt"></i> Logout / Deactivate Account
-               <p style="font-size: 14px; color: grey; font-weight: 500; margin-right: 10px;">Log out of your account or deactivate it if you no longer wish to use the app.</p></h2>
-            <span id="toggle-icon" style="color: white; font-size: 18px;" class="amount-toggle-icon">
-                <i class="fas fa-chevron-right"></i>
-            </span>
+        <div style="border-color: #cb0d0d;"  onclick="logout()" class="profile-container">
+            <h2 style="color: #cb0d0d;" class="hero-title" id="Total-amount">  <i style="margin-right: 3px;" class="fas fa-sign-out-alt"></i> Logout
+             </h2>
+        
         </div>
 
 
@@ -498,7 +496,7 @@ font-size: 16px;
       <div class="container">
 
         <p class="copyright">
-            &copy; 2024 <a href="#"><strong>Tapblox</strong></a>. All Rights Reserved
+            &copy; 2024 <a href="https://chisomjnr.github.io/junior.com"><strong>Tapblox</strong></a>. All Rights Reserved
           </p>
 <br>
 <br>
@@ -506,6 +504,68 @@ font-size: 16px;
     </div>
 
   </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<!--
+  Login Functionality
+-->
+
+<script>
+    // Function to check if the user is logged in
+    function checkUserLoggedIn() {
+        // Retrieve the user data from localStorage
+        const loggedUser = JSON.parse(localStorage.getItem('userDetails'));
+
+        // Check if user data exists in localStorage
+        if (!loggedUser) {
+            // If no user is logged in, redirect to login page
+            window.location.href = 'login.html';
+        }
+    }
+
+    // Call the function to check login status when the page loads
+    checkUserLoggedIn();
+
+    // Logout function
+    function logout() {
+        // Remove user details from localStorage to log the user out
+        localStorage.removeItem('userDetails');
+
+        // Redirect to login page after logging out
+        window.location.href = 'login.html';
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
