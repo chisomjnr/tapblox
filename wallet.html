@@ -200,7 +200,7 @@
                   align-items: center;
                     position: fixed;
                     bottom: 90px;
-                    background: #000000;
+                    background: #00000000;
                     padding: 10px;
                     
                     right: 0;
@@ -246,7 +246,7 @@
                     position: relative;
                     background: #1e1e1e;
                     padding: 15px;
-                    height: 80px;
+                    height: 100px;
                     border-radius: 10px;
                 }
             
@@ -269,34 +269,54 @@
             </style>
             
             <div class="profile-container">
-              <h2 class="hero-title" id="Total-amount">N0.00</h2>
+
+              
+              <h2 class="hero-title" id="Total-amount">N0.00 
+                <br>
+                <p style="color: bisque; font-size: 16px; font-weight: 500;" id="Total-coins">0 FipCoins</p>
+
+              </h2>
               <span id="toggle-icon" style="color: white; font-size: 18px;" class="amount-toggle-icon">
                   <i class="fas fa-eye"></i>
               </span>
           </div>
           
           <!-- Add this script at the bottom of your page or within a <script> tag -->
-          <script>
+            <script>
               // Get the amount element and the toggle icon
               const totalAmount = document.getElementById('Total-amount');
               const toggleIcon = document.getElementById('toggle-icon');
           
-              // Set an initial state for visibility
-              let isAmountVisible = true;
+              // Initialize state from local storage or default to visible
+              let isAmountVisible = localStorage.getItem('isAmountVisible') === 'false' ? false : true;
+          
+              // Set the initial state of the amount and toggle icon
+              updateUI();
           
               // Add a click event listener to the toggle icon
               toggleIcon.addEventListener('click', () => {
                   // Toggle the visibility of the amount
+                  isAmountVisible = !isAmountVisible;
+                  
+                  // Update local storage with the new state
+                  localStorage.setItem('isAmountVisible', isAmountVisible);
+          
+                  // Update the UI to reflect the new state
+                  updateUI();
+              });
+          
+              // Function to update the UI based on the visibility state
+              function updateUI() {
                   if (isAmountVisible) {
+                      totalAmount.textContent = 'N0.00'; // Show amount, you can replace 'N0.00' with the actual amount variable
+                      toggleIcon.innerHTML = '<i class="fas fa-eye"></i>'; // Change icon to 'eye'
+                  } else {
                       totalAmount.textContent = '******'; // Hide amount
                       toggleIcon.innerHTML = '<i class="fas fa-eye-slash"></i>'; // Change icon to 'eye-slash'
-                  } else {
-                      totalAmount.textContent = 'N0.00'; // Show amount, you can replace 'N0.00' with the actual amount variable
-                      toggleIcon.innerHTML = '<i class="fas fa-eye"></i>'; // Change icon back to 'eye'
                   }
-                  isAmountVisible = !isAmountVisible; // Toggle the state
-              });
+              }
           </script>
+          
       
           
             
@@ -314,11 +334,12 @@
                     padding: 2vw 4vw; /* Padding adjusts with the viewport width */
                     text-align: center;
                     text-decoration: none;
-                    border: 3px solid #1e1e1e;
+                    border: 2px solid #1e1e1e;
                     border-radius: 10px; /* Rounded corners */
                     transition: background-color 0.3s ease; /* Smooth transition on hover */
-                    background-color: #1e1e1e;
+                    background-color: #1e1e1e00;
                     color: #e3e3e3;
+                    height: 80px;
                     font-size: 3vw; /* Font size adjusts with the viewport width */
                 }
             
@@ -352,9 +373,49 @@
           
           </div>
 
-          <figure class="hero-banner">
-            <img src="assets/images/2e9b591c-9e6a-4240-9eb6-275cc16c790c-removebg-preview (1).png" alt="Modern house model" class="w-100">
-          </figure>
+          <style>
+            .transaction {
+              color: white;
+              margin-top: 30px;
+            }
+
+            .transaction-history {
+              background: rgb(21, 21, 21);
+              margin-top: 10px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              text-align: center;
+              height: 200px;
+              margin-bottom: 10px;
+              border-radius: 10px;
+            }
+
+            .transaction-history p {
+              font-family: poppins;
+              font-size: 15px;
+              color: grey;
+            }
+
+            .transaction h1{
+              color: white;
+              font-size: 22px;
+            }
+
+          </style>
+
+      
+
+          <div class="transaction">
+            <h1>Transaction History</h1>
+
+            
+          <div class="transaction-history">
+            <p>You currently have no transactions made</p>
+
+            
+          </div>
+          </div>
 
         </div>
       </section>
