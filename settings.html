@@ -268,16 +268,15 @@ font-size: 16px;
 
 
 
-
+<div class="settings">
 
 
                         <!-- Search bar with search icon and button -->
-            <div class="search-container">
-                <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
-                <input type="text" id="search-bar" placeholder="Search for settings...">
-                <button class="search-button" onclick="searchFunction()">Search</button>
-             
-            </div>
+                        <div class="search-container">
+                            <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
+                            <input type="text" id="search-bar" placeholder="Search for settings..." onkeyup="searchFunction()">
+                            <button class="search-button" onclick="searchFunction()">Search</button>
+                        </div>
 
             <br>
             <style>
@@ -337,7 +336,7 @@ font-size: 16px;
             
             </style>
             
-            <div  onclick="window.location.href='./settings/accountsetting.html';" class="profile-container">
+            <div  onclick="window.location.href='./settings/accountsetting.html';" class="profile-container"  data-title="Account Settings  change password">
               <h2 class="hero-title" id="Total-amount"><i style="margin-right: 3px; color: orange;" class="fas fa-user-cog"></i> Account Settings
                  <p style="font-size: 14px; color: grey; font-weight: 500; margin-right: 10px;">Manage your personal information, linked accounts, and secure your account details.</p></h2>
               <span id="toggle-icon" style="color: white; font-size: 18px;" class="amount-toggle-icon">
@@ -346,7 +345,7 @@ font-size: 16px;
           </div>
           
   
-          <div  onclick="window.location.href='./settings/notification.html';" class="profile-container">
+          <div  onclick="window.location.href='./settings/notification.html';" class="profile-container" data-title="Notifications">
             <h2 class="hero-title" id="Total-amount"><i style="margin-right: 3px; color: orange;" class="fas fa-bell"></i> Notifications
                <p style="font-size: 14px; color: grey; font-weight: 500; margin-right: 10px;">Customize how you receive alerts about tasks, rewards, and important updates.
             </p></h2>
@@ -356,7 +355,7 @@ font-size: 16px;
         </div>
 
 
-        <div  onclick="window.location.href='./settings/privacy.html';" class="profile-container">
+        <div  onclick="window.location.href='./settings/privacy.html';" class="profile-container" data-title="Privacy & Security">
             <h2 class="hero-title" id="Total-amount"><i style="margin-right: 3px; color: orange;" class="fas fa-shield-alt"></i> Privacy & Security
                <p style="font-size: 14px; color: grey; font-weight: 500; margin-right: 10px;">Protect your account with additional security features and manage privacy settings.</p></h2>
             <span id="toggle-icon" style="color: white; font-size: 18px;" class="amount-toggle-icon">
@@ -365,7 +364,7 @@ font-size: 16px;
         </div>
 
 
-        <div  onclick="window.location.href='./settings/language.html';" class="profile-container">
+        <div  onclick="window.location.href='./settings/language.html';" class="profile-container" data-title="language & Region">
             <h2 class="hero-title" id="Total-amount"><i style="margin-right: 3px; color: orange;" class="fas fa-globe"></i> language & Region
                <p style="font-size: 14px; color: grey; font-weight: 500; margin-right: 10px;">Set your preferred language and regional settings for a personalized experience.</p></h2>
             <span id="toggle-icon" style="color: white; font-size: 18px;" class="amount-toggle-icon">
@@ -374,7 +373,7 @@ font-size: 16px;
         </div>
           
          
-        <div  onclick="window.location.href='./settings/payment.html';" class="profile-container">
+        <div  onclick="window.location.href='./settings/payment.html';" class="profile-container"  data-title="Payment and Withdrawals  transaction history  withdraw fipcoins  payment method  wallet">
             <h2 class="hero-title" id="Total-amount"><i style="margin-right: 3px; color: orange;" class="fas fa-wallet"></i> Payment and Withdrawals
                <p style="font-size: 14px; color: grey; font-weight: 500; margin-right: 10px;">Manage your payment methods, view transactions, and withdraw your earned FipCoins.</p></h2>
             <span id="toggle-icon" style="color: white; font-size: 18px;" class="amount-toggle-icon">
@@ -382,15 +381,15 @@ font-size: 16px;
             </span>
         </div>
         
-        <div  onclick="window.location.href='./settings/task.html';" class="profile-container">
+        <!-- <div  onclick="window.location.href='./settings/task.html';" class="profile-container"  data-title="Privacy & Security">
             <h2 class="hero-title" id="Total-amount"><i style="margin-right: 3px; color: orange;" class="fas fa-tasks"></i> Task Preferences
                <p style="font-size: 14px; color: grey; font-weight: 500; margin-right: 10px;">Adjust task-related settings to receive tasks that match your preferences.</p></h2>
             <span id="toggle-icon" style="color: white; font-size: 18px;" class="amount-toggle-icon">
                 <i class="fas fa-chevron-right"></i>
             </span>
-        </div>
+        </div> -->
 
-        <div  onclick="window.location.href='./settings/customize.html';" class="profile-container">
+        <div  onclick="window.location.href='./settings/customize.html';" class="profile-container"  data-title="App Customization Theme">
             <h2 class="hero-title" id="Total-amount"><i style="margin-right: 3px; color: orange;" class="fas fa-paint-brush"></i> App Customization
                <p style="font-size: 14px; color: grey; font-weight: 500; margin-right: 10px;">Personalize the app’s appearance, including themes and notification sounds.</p></h2>
             <span id="toggle-icon" style="color: white; font-size: 18px;" class="amount-toggle-icon">
@@ -398,7 +397,7 @@ font-size: 16px;
             </span>
         </div>
 
-        <div  onclick="window.location.href='./settings/support.html';" class="profile-container">
+        <div  onclick="window.location.href='./settings/support.html';" class="profile-container"  data-title="Support & Feedback  Help">
             <h2 class="hero-title" id="Total-amount"><i style="margin-right: 3px; color: orange;" class="fas fa-headset"></i> Support & Feedback
                <p style="font-size: 14px; color: grey; font-weight: 500; margin-right: 10px;">Access help resources, contact support, and provide feedback on your experience.</p></h2>
             <span id="toggle-icon" style="color: white; font-size: 18px;" class="amount-toggle-icon">
@@ -406,7 +405,7 @@ font-size: 16px;
             </span>
         </div>
 
-        <div  onclick="window.location.href='./settings/legal.html';" class="profile-container">
+        <div  onclick="window.location.href='./settings/legal.html';" class="profile-container"  data-title="Legal & Terms">
             <h2 class="hero-title" id="Total-amount"><i style="margin-right: 3px; color: orange;" class="fas fa-file-contract"></i> Legal & Terms
                <p style="font-size: 14px; color: grey; font-weight: 500; margin-right: 10px;">Review the terms of service, privacy policy, and other legal information.
             </p></h2>
@@ -415,16 +414,38 @@ font-size: 16px;
             </span>
         </div>
 
-        <div  onclick="window.location.href='./settings/logout.html';" class="profile-container">
+        <div  onclick="window.location.href='./settings/logout.html';" class="profile-container" data-title="Logout / Deactivate Account">
             <h2 class="hero-title" id="Total-amount"><i style="margin-right: 3px; color: orange;" class="fas fa-sign-out-alt"></i> Logout / Deactivate Account
                <p style="font-size: 14px; color: grey; font-weight: 500; margin-right: 10px;">Log out of your account or deactivate it if you no longer wish to use the app.</p></h2>
             <span id="toggle-icon" style="color: white; font-size: 18px;" class="amount-toggle-icon">
                 <i class="fas fa-chevron-right"></i>
             </span>
         </div>
+
+
+        <script>
+            function searchFunction() {
+        // Get the search input value and split into words
+        let input = document.getElementById('search-bar').value.toLowerCase().split(' ').filter(Boolean);
+        // Get all the profile containers
+        let settingsItems = document.querySelectorAll('.profile-container');
+
+        // Loop through each settings item
+        settingsItems.forEach((item) => {
+            // Get the title text of each settings item
+            let title = item.getAttribute('data-title').toLowerCase();
+
+            // Check if all words in the input are found in the title
+            let matches = input.every(word => title.includes(word));
+
+            // Show or hide the settings item based on the search input
+            item.style.display = matches ? 'flex' : 'none';
+        });
+    }
+        </script>
           
           </div>
-
+        </div>
        
 
         </div>
