@@ -280,7 +280,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgb(0, 0, 0); /* Semi-transparent background */
+        background-color: rgba(0, 0, 0, 0.136); /* Semi-transparent background */
         color: white;
         display: flex;
         align-items: center;
@@ -295,7 +295,7 @@
 
 <script>
     function checkScreenWidth() {
-        if (window.innerWidth > 680) {
+        if (window.innerWidth > 1680) {
             // Show the overlay message if the screen width is greater than 680px
             document.getElementById("overlay-message").style.display = "flex";
         } else {
@@ -389,9 +389,9 @@ font-size: 16px;
 
                         <!-- Search bar with search icon and button -->
                         <div class="search-container">
-                            <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
+
                             <input type="text" id="search-bar" placeholder="Search for settings..." onkeyup="searchFunction()">
-                            <button class="search-button" onclick="searchFunction()">Search</button>
+                            <button class="search-button" onclick="searchFunction()"><i class="fas fa-search"></i></button>
                         </div>
 
             <br>

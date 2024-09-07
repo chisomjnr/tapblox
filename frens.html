@@ -273,7 +273,7 @@
 
 <script>
     function checkScreenWidth() {
-        if (window.innerWidth > 680) {
+        if (window.innerWidth > 1680) {
             // Show the overlay message if the screen width is greater than 680px
             document.getElementById("overlay-message").style.display = "flex";
         } else {
@@ -321,24 +321,24 @@
                   alt=""
                   style="width: 30px;  margin-right: 5px;" /> -->
               
-                  <h1 id="user-name" style="color: white;  font-weight: 450; font-family: poppins; font-size: 15px;">
-                  User's Name
-                  </h1>
+                  <h1 style="color: white; font-weight: 450; font-family: poppins; font-size: 15px; line-height: 1.2;">
+                    Welcome, <br> <strong id="user-name" style="color: orange;">Edit Name</strong>
+                </h1>
               </div>
          
      
               
-<div
-style="display: flex; align-items: center; justify-content: center; text-align: center;">
-<img
-    src="images/WhatsApp_Image_2024-08-30_at_5.59.28_PM-removebg-preview.png"
-    alt=""
-    style="width: 30px;  margin-right: 5px;" />
-
-    <h1 style="color: white; font-weight: bold; font-family: poppins; font-size: 15px;">
-      0
-    </h1>
-</div>
+              <div
+              style="display: flex; align-items: center; justify-content: center; text-align: center; background: #ffffff; padding: 4px 10px; border-radius: 10px;">
+              <img
+                  src="images/WhatsApp_Image_2024-08-30_at_5.59.28_PM-removebg-preview.png"
+                  alt=""
+                  style="width: 30px;  margin-right: 5px;" />
+              
+                  <h1 style="color: rgb(0, 0, 0); font-weight: bold; font-family: poppins; font-size: 15px; ">
+                    0
+                  </h1>
+              </div>
           </div>
 <!--     
                 <h2 class="h1 hero-title">Earn FipCoins</h2>
@@ -363,7 +363,7 @@ style="display: flex; align-items: center; justify-content: center; text-align: 
                         transition: background-color 0.3s ease; /* Smooth transition on hover */
                         background-color: #1e1e1e;
                         color: #e3e3e3;
-                        font-size: 3vw; /* Font size adjusts with the viewport width */
+                        font-size: 20px; /* Font size adjusts with the viewport width */
                     }
                 
                     .button-container .btnn:hover {
@@ -399,7 +399,7 @@ style="display: flex; align-items: center; justify-content: center; text-align: 
                         transition: background-color 0.3s ease; /* Smooth transition on hover */
                         background-color: orange;
                         color: #e3e3e3;
-                        font-size: 3vw; /* Font size adjusts with the viewport width */
+                        font-size: 20px; /* Font size adjusts with the viewport width */
                     }
                 
                     .button-container .btnn2:hover {
@@ -522,6 +522,37 @@ style="display: flex; align-items: center; justify-content: center; text-align: 
 }
 
 
+/* Mobile view adjustments */
+@media (max-width: 1680px) {
+    .spinbody {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .spinbody .slot-machine {
+        margin-bottom: 10px;
+        gap: 5px;
+        width: 400px;
+   
+    }
+
+    .reel {
+        width: 70px;
+        height: 120px;
+        margin: 0 5px;
+        font-size: 1.8em;
+    }
+
+    .spinbody button {
+        width: 400px;
+     
+        font-size: 14px;
+        padding: 12px;
+        text-align: center;
+    }
+}
+
+
 
 
 /* Mobile view adjustments */
@@ -534,6 +565,7 @@ style="display: flex; align-items: center; justify-content: center; text-align: 
     .spinbody .slot-machine {
         margin-bottom: 10px;
         gap: 5px;
+        box-shadow: 0 0 50px #191919bf;
     }
 
     .reel {
@@ -841,7 +873,7 @@ spinButton.addEventListener('click', handleSpin);
                 transition: background-color 0.3s ease; /* Smooth transition on hover */
                 background-color: #1e1e1e;
                 color: #e3e3e3;
-                font-size: 3vw; /* Font size adjusts with the viewport width */
+                font-size: 20px; /* Font size adjusts with the viewport width */
             }
         
             .button-container .btnn:hover {
@@ -877,7 +909,7 @@ spinButton.addEventListener('click', handleSpin);
                 transition: background-color 0.3s ease; /* Smooth transition on hover */
                 background-color: orange;
                 color: #e3e3e3;
-                font-size: 3vw; /* Font size adjusts with the viewport width */
+                font-size: 20px; /* Font size adjusts with the viewport width */
             }
         
             .button-container .btnn2:hover {
@@ -965,7 +997,7 @@ function showPopup(message, redirect = false) {
                 window.location.href = 'login.html';
             } else {
                 // Display the first name of the logged-in user
-                document.getElementById('user-name').textContent = `Welcome, ${loggedUser.firstName}`;
+                document.getElementById('user-name').textContent = `${loggedUser.firstName}`;
             }
         }
 

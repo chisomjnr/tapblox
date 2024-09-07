@@ -274,7 +274,7 @@
 
 <script>
     function checkScreenWidth() {
-        if (window.innerWidth > 680) {
+        if (window.innerWidth > 1680) {
             // Show the overlay message if the screen width is greater than 680px
             document.getElementById("overlay-message").style.display = "flex";
         } else {
@@ -315,24 +315,24 @@
                 <div style="cursor: pointer;" onclick="window.location.href='profile.html';" 
                 style="display: flex; align-items: center; justify-content: center; text-align: center;">
              
-                    <h1 id="user-name" style="color: white; font-weight: 450; font-family: poppins; font-size: 15px;">
-                      User's Name
-                  </h1>
+                <h1 style="color: white; font-weight: 450; font-family: poppins; font-size: 15px; line-height: 1.2;">
+                  Welcome, <br> <strong id="user-name" style="color: orange;">Edit Name</strong>
+              </h1>
                 </div>
            
        
                 
-  <div
-  style="display: flex; align-items: center; justify-content: center; text-align: center;">
-  <img
-      src="images/WhatsApp_Image_2024-08-30_at_5.59.28_PM-removebg-preview.png"
-      alt=""
-      style="width: 30px;  margin-right: 5px;" />
-  
-      <h1 style="color: white; font-weight: bold; font-family: poppins; font-size: 15px;">
-        0
-      </h1>
-  </div>
+                <div
+                style="display: flex; align-items: center; justify-content: center; text-align: center; background: #ffffff; padding: 4px 10px; border-radius: 10px;">
+                <img
+                    src="images/WhatsApp_Image_2024-08-30_at_5.59.28_PM-removebg-preview.png"
+                    alt=""
+                    style="width: 30px;  margin-right: 5px;" />
+                
+                    <h1 style="color: rgb(0, 0, 0); font-weight: bold; font-family: poppins; font-size: 15px; ">
+                      0
+                    </h1>
+                </div>
             </div>
 
 
@@ -362,7 +362,7 @@
                 transition: background-color 0.3s ease;
                 background-color: #1f1f1f;
                 color: #e3e3e3;
-                font-size: 3vw;
+                font-size: 20px;
               }
             
               .button-container .btnn:hover {
@@ -640,7 +640,7 @@
                 window.location.href = 'login.html';
             } else {
                 // Display the first name of the logged-in user
-                document.getElementById('user-name').textContent = `Welcome, ${loggedUser.firstName}`;
+                document.getElementById('user-name').textContent = ` ${loggedUser.firstName}`;
             }
         }
 

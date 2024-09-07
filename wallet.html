@@ -278,7 +278,7 @@
 
 <script>
     function checkScreenWidth() {
-        if (window.innerWidth > 680) {
+        if (window.innerWidth > 1680) {
             // Show the overlay message if the screen width is greater than 680px
             document.getElementById("overlay-message").style.display = "flex";
         } else {
@@ -310,24 +310,24 @@
                   alt=""
                   style="width: 30px;  margin-right: 5px;" /> -->
               
-                  <h1 id="user-name" style="color: white;  font-weight: 450; font-family: poppins; font-size: 15px;">
-                  User's Name
-                  </h1>
+                  <h1 style="color: white; font-weight: 450; font-family: poppins; font-size: 15px; line-height: 1.2;">
+                    Welcome, <br> <strong id="user-name" style="color: orange;">Edit Name</strong>
+                </h1>
               </div>
          
      
               
-<div
-style="display: flex; align-items: center; justify-content: center; text-align: center;">
-<img
-    src="images/WhatsApp_Image_2024-08-30_at_5.59.28_PM-removebg-preview.png"
-    alt=""
-    style="width: 30px;  margin-right: 5px;" />
-
-    <h1 style="color: white; font-weight: bold; font-family: poppins; font-size: 15px;">
-      0
-    </h1>
-</div>
+              <div
+              style="display: flex; align-items: center; justify-content: center; text-align: center; background: orange; padding: 4px 10px; border-radius: 10px;">
+              <img
+                  src="images/WhatsApp_Image_2024-08-30_at_5.59.28_PM-removebg-preview.png"
+                  alt=""
+                  style="width: 30px;  margin-right: 5px;" />
+              
+                  <h1 style="color: rgb(0, 0, 0); font-weight: bold; font-family: poppins; font-size: 15px; ">
+                    0
+                  </h1>
+              </div>
           </div>
             <style>
               .profile-container2 {
@@ -485,8 +485,8 @@ style="display: flex; align-items: center; justify-content: center; text-align: 
                     transition: background-color 0.3s ease; /* Smooth transition on hover */
                     background-color: #1e1e1e00;
                     color: #e3e3e3;
-                    height: 80px;
-                    font-size: 3vw; /* Font size adjusts with the viewport width */
+                   
+                    font-size: 20px; /* Font size adjusts with the viewport width */
                 }
             
                 .button-container .btnn:hover {
@@ -497,6 +497,7 @@ style="display: flex; align-items: center; justify-content: center; text-align: 
                 /* Media queries for smaller screens */
                 @media (max-width: 680px) {
                     .button-container .btnn {
+                      height: 80px;
                         padding: 15px 20px; /* Reduce padding on smaller screens */
                         font-size: 18px; /* Increase font size proportionally */
                     }
@@ -620,7 +621,7 @@ style="display: flex; align-items: center; justify-content: center; text-align: 
                 window.location.href = 'login.html';
             } else {
                 // Display the first name of the logged-in user
-                document.getElementById('user-name').textContent = `Welcome, ${loggedUser.firstName}`;
+                document.getElementById('user-name').textContent = `${loggedUser.firstName}`;
             }
         }
 
