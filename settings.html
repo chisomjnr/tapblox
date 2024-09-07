@@ -52,10 +52,7 @@
       <div class="container">
 
       <div class="head">
-        <a id="goBackLink" href="#" class="logo">
-         
-            <h1> <i style="margin-right: 7px; color: orange;" class="fas fa-chevron-left"></i> Settings</h1>
-          </a>
+       
       </div>
 
       <script>
@@ -65,6 +62,121 @@
             history.back(); // Go back to the previous page
         });
         </script>
+
+
+
+
+<div class="head">
+    <a id="goBackLink" href="#" class="logo">
+         
+        <h1> <i style="margin-right: 7px; color: orange;" class="fas fa-chevron-left"></i> Settings</h1>
+      
+      <i class="fas fa-ellipsis-v ellipsis"></i>
+    </a>
+  
+    <!-- Hidden menu that will be toggled -->
+    <div class="menu-box">
+      <a href="profile.html" class="menu-item">User Profile</a>
+      <a href="settings.html" class="menu-item">Create Account</a>
+      <a href="settings/support.html" class="menu-item">Support</a>
+    </div>
+  </div>
+  
+  <style>
+    .head {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .logo {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      text-align: center;
+    }
+  
+    h1 {
+      margin: 0;
+    }
+  
+    .ellipsis {
+      position: absolute;
+      right: 10px; /* Adjust the value as needed for spacing from the right edge */
+      top: 50%;
+      font-size: 20px;
+      color: white;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+  
+    .menu-box {
+      position: absolute;
+      right: 10px;
+      width: 200px;
+      top: 60px; /* Adjust position according to your layout */
+      background: #000000;
+      border: 1px solid #555555;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      display: none; /* Initially hidden */
+      flex-direction: column;
+      z-index: 1000;
+    }
+  
+    .menu-item {
+      padding: 10px 15px;
+      
+      text-decoration: none;
+      color: #efefef;
+      display: block;
+      transition: background 0.3s;
+    }
+  
+    .menu-item:hover {
+      background: #1b1b1b;
+    }
+  </style>
+
+
+<script>
+    // Select the ellipsis icon and menu box
+    const ellipsis = document.querySelector('.ellipsis');
+    const menuBox = document.querySelector('.menu-box');
+  
+    // Toggle menu visibility on ellipsis click
+    ellipsis.addEventListener('click', () => {
+      menuBox.style.display = menuBox.style.display === 'block' ? 'none' : 'block';
+    });
+  
+    // Close the menu when clicking outside of it
+    document.addEventListener('click', (event) => {
+      if (!menuBox.contains(event.target) && !ellipsis.contains(event.target)) {
+        menuBox.style.display = 'none';
+      }
+    });
+  </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <nav class="navbar" data-navbar>
 
@@ -102,6 +214,10 @@
           </div>
 
         </nav>
+
+
+
+
         <div class="header-bottom-actions">
 
           <button class="header-bottom-actions-btn" aria-label="Earn" onclick="window.location.href='home.html';">
@@ -420,11 +536,59 @@ font-size: 16px;
         
         </div>
 
-        <div style="border-color: #cb0d0d;"  onclick="logout()" class="profile-container">
-            <h2 style="color: #cb0d0d;" class="hero-title" id="Total-amount">  <i style="margin-right: 3px;" class="fas fa-trash"></i> Delete Account
-             </h2>
+       <!-- Delete Account Button -->
+       <div style="border-color: #cb0d0d;" onclick="confirmDeleteAccount()" class="profile-container">
+        <h2 style="color: #cb0d0d;" class="hero-title" id="Total-amount">
+            <i style="margin-right: 3px;" class="fas fa-trash"></i> Delete Account
+        </h2>
+    </div>
+
+
+
+
+    <style>
+        /* Popup styling */
+        .popup {
+            position: fixed;
+            bottom: -150px;
+            left: 50%;
+            width: 300px;
+            
+            transform: translateX(-50%);
+            background-color: orange;
         
-        </div>
+            color: rgb(0, 0, 0);
+            padding: 15px ;
+            font-family: poppins;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transition: bottom 0.5s, opacity 0.5s;
+        }
+
+        .popup button{
+            color: #000000;
+            margin-top: 10px;
+            border: 1px solid black;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 10px;
+        }
+
+        .popup.show {
+            bottom: 100px;
+            opacity: 1;
+        }
+    </style>
+
+     <!-- Confirmation Popup -->
+     <div id="popup" class="popup">
+        <p id="popup-message"></p>
+        <button id="confirm-delete" style="margin-right: 10px;">Yes, Delete</button>
+        <button id="cancel-delete">Cancel</button>
+    </div>
+
+
 
 
 
@@ -537,29 +701,67 @@ font-size: 16px;
 <script>
     // Function to check if the user is logged in
     function checkUserLoggedIn() {
-        // Retrieve the user data from localStorage
         const loggedUser = JSON.parse(localStorage.getItem('userDetails'));
 
-        // Check if user data exists in localStorage
         if (!loggedUser) {
-            // If no user is logged in, redirect to login page
             window.location.href = 'login.html';
+        } else {
+            document.getElementById('user-name').textContent = `Welcome, ${loggedUser.firstName}`;
         }
     }
 
-    // Call the function to check login status when the page loads
     checkUserLoggedIn();
 
     // Logout function
     function logout() {
-        // Remove user details from localStorage to log the user out
         localStorage.removeItem('userDetails');
-
-        // Redirect to login page after logging out
         window.location.href = 'login.html';
     }
-</script>
 
+    // Confirm Delete Account Function
+    function confirmDeleteAccount() {
+        const popup = document.getElementById('popup');
+        const popupMessage = document.getElementById('popup-message');
+
+        // Display confirmation message
+        popupMessage.textContent = 'Are you sure you want to delete your account?';
+        popup.classList.add('show');
+
+        // Show the confirm and cancel buttons
+        document.getElementById('confirm-delete').style.display = 'inline';
+        document.getElementById('cancel-delete').style.display = 'inline';
+    }
+
+    // Delete Account Function
+    function deleteAccount() {
+        // Retrieve current users from local storage
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        const loggedUser = JSON.parse(localStorage.getItem('userDetails'));
+
+        // Filter out the current logged-in user
+        const updatedUsers = users.filter(user => user.email !== loggedUser.email);
+
+        // Update users in local storage
+        localStorage.setItem('users', JSON.stringify(updatedUsers));
+
+        // Remove the logged-in user from local storage
+        localStorage.removeItem('userDetails');
+
+        // Hide the popup and redirect to signup page
+        hidePopup();
+        window.location.href = 'signup.html';
+    }
+
+    // Hide Popup Function
+    function hidePopup() {
+        const popup = document.getElementById('popup');
+        popup.classList.remove('show');
+    }
+
+    // Event Listeners for Confirm and Cancel Buttons
+    document.getElementById('confirm-delete').addEventListener('click', deleteAccount);
+    document.getElementById('cancel-delete').addEventListener('click', hidePopup);
+</script>
 
 
 

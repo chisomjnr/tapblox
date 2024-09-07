@@ -51,12 +51,119 @@
     <div class="header-bottom">
       <div class="container">
 
+   
+
+
+
+
+
+
+
+
+
       <div class="head">
         <a href="#" class="logo">
-          
+ 
             <h1>Wallet<strong style="color: orange;">.</strong></h1>
-          </a>
+   
+          <i class="fas fa-ellipsis-v ellipsis"></i>
+        </a>
+      
+        <!-- Hidden menu that will be toggled -->
+        <div class="menu-box">
+          <a href="profile.html" class="menu-item">User Profile</a>
+          <a href="settings.html" class="menu-item">Settings</a>
+          <a href="settings/support.html" class="menu-item">Support</a>
+        </div>
       </div>
+      
+      <style>
+        .head {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      
+        .logo {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          text-align: center;
+        }
+      
+        h1 {
+          margin: 0;
+        }
+      
+        .ellipsis {
+          position: absolute;
+          right: 10px; /* Adjust the value as needed for spacing from the right edge */
+          top: 50%;
+          font-size: 20px;
+          color: white;
+          transform: translateY(-50%);
+          cursor: pointer;
+        }
+      
+        .menu-box {
+          position: absolute;
+          right: 10px;
+          width: 200px;
+          top: 60px; /* Adjust position according to your layout */
+          background: #000000;
+          border: 1px solid #555555;
+          border-radius: 10px;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+          display: none; /* Initially hidden */
+          flex-direction: column;
+          z-index: 1000;
+        }
+      
+        .menu-item {
+          padding: 10px 15px;
+          
+          text-decoration: none;
+          color: #efefef;
+          display: block;
+          transition: background 0.3s;
+        }
+      
+        .menu-item:hover {
+          background: #1b1b1b;
+        }
+      </style>
+    
+    
+    <script>
+        // Select the ellipsis icon and menu box
+        const ellipsis = document.querySelector('.ellipsis');
+        const menuBox = document.querySelector('.menu-box');
+      
+        // Toggle menu visibility on ellipsis click
+        ellipsis.addEventListener('click', () => {
+          menuBox.style.display = menuBox.style.display === 'block' ? 'none' : 'block';
+        });
+      
+        // Close the menu when clicking outside of it
+        document.addEventListener('click', (event) => {
+          if (!menuBox.contains(event.target) && !ellipsis.contains(event.target)) {
+            menuBox.style.display = 'none';
+          }
+        });
+      </script>
+      
+    
+    
+    
+    
+
+
+
+
+
 
         <nav class="navbar" data-navbar>
 
@@ -193,6 +300,35 @@
         <div class="container">
 
           <div class="hero-content">
+
+
+            <div class="profile-container3">
+              <div style="cursor: pointer;" onclick="window.location.href='profile.html';" 
+              style="display: flex; align-items: center; justify-content: center; text-align: center;">
+              <!-- <img
+                  src="images/user.png"
+                  alt=""
+                  style="width: 30px;  margin-right: 5px;" /> -->
+              
+                  <h1 id="user-name" style="color: white;  font-weight: 450; font-family: poppins; font-size: 15px;">
+                  User's Name
+                  </h1>
+              </div>
+         
+     
+              
+<div
+style="display: flex; align-items: center; justify-content: center; text-align: center;">
+<img
+    src="images/WhatsApp_Image_2024-08-30_at_5.59.28_PM-removebg-preview.png"
+    alt=""
+    style="width: 30px;  margin-right: 5px;" />
+
+    <h1 style="color: white; font-weight: bold; font-family: poppins; font-size: 15px;">
+      0
+    </h1>
+</div>
+          </div>
             <style>
               .profile-container2 {
                   display: flex;
@@ -215,6 +351,16 @@
                     border-radius: 10px;
               
               }
+
+              .profile-container3 {
+                display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                  
+                    margin: 10px;
+              
+              }
+          
           
           
           </style>
@@ -463,29 +609,32 @@
 -->
 
 <script>
-  // Function to check if the user is logged in
-  function checkUserLoggedIn() {
-      // Retrieve the user data from localStorage
-      const loggedUser = JSON.parse(localStorage.getItem('userDetails'));
+    // Function to check if the user is logged in
+    function checkUserLoggedIn() {
+            // Retrieve the user data from localStorage
+            const loggedUser = JSON.parse(localStorage.getItem('userDetails'));
 
-      // Check if user data exists in localStorage
-      if (!loggedUser) {
-          // If no user is logged in, redirect to login page
-          window.location.href = 'login.html';
-      }
-  }
+            // Check if user data exists in localStorage
+            if (!loggedUser) {
+                // If no user is logged in, redirect to login page
+                window.location.href = 'login.html';
+            } else {
+                // Display the first name of the logged-in user
+                document.getElementById('user-name').textContent = `Welcome, ${loggedUser.firstName}`;
+            }
+        }
 
-  // Call the function to check login status when the page loads
-  checkUserLoggedIn();
+        // Call the function to check login status and display the user's name
+        checkUserLoggedIn();
 
-  // Logout function
-  function logout() {
-      // Remove user details from localStorage to log the user out
-      localStorage.removeItem('userDetails');
+        // Logout function
+        function logout() {
+            // Remove user details from localStorage to log the user out
+            localStorage.removeItem('userDetails');
 
-      // Redirect to login page after logging out
-      window.location.href = 'login.html';
-  }
+            // Redirect to login page after logging out
+            window.location.href = 'login.html';
+        }
 </script>
 
 
