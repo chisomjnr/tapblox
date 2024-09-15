@@ -424,7 +424,8 @@ style="display: flex; align-items: center; justify-content: center; text-align: 
                 <div  >
                 
                 <div class="button-container">
-                    <button id="withdrawButton" class="btnn"><i style="margin-right: 5px;" class="fas fa-hand-pointer"></i> 300 Taps Left</button>
+                    <button id="withdrawButton" class="btnn"><i style="margin-right: 5px;" class="fas fa-hand-pointer"></i> 100 Taps Left</button>
+
                     <button id="boostButto" class="btnn" onclick="window.location.href='boost.html';"><i style="margin-right: 5px;" class="fas fa-rocket"></i> Boosters</button>
                 </div>
 
@@ -460,17 +461,192 @@ style="display: flex; align-items: center; justify-content: center; text-align: 
     alt=""
     style="width: 50px; height: auto; margin-right: 10px;" /> -->
     <i></i>
-  <h1 style="color: white; font-weight: bold; font-family: poppins; font-size: 40px;">
+  <!-- <h1 style="color: white; font-weight: bold; font-family: poppins; font-size: 40px;">
     500 <strong style="color: orange;">MAX</strong>
-  </h1>
+  </h1> -->
 </div>
 <br>
 
+<style>
+    .centered-image {
+        transition: transform 0.1s ease; /* Smooth transition */
+    position: relative;
+}
+
+@keyframes vibrate {
+    0% { transform: translate(0); }
+    25% { transform: translate(-2px, 2px); }
+    50% { transform: translate(2px, -2px); }
+    75% { transform: translate(-2px, -2px); }
+    100% { transform: translate(2px, 2px); }
+}
+
+.vibrate {
+    animation: vibrate 0.1s;
+}
+
+@keyframes floatUp {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-50px); }
+}
+
+.float-plus-one {
+    position: absolute;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: poppins;
+    color: rgb(255, 255, 255); /* Green color for "+1" */
+    animation: floatUp 1.5s ease forwards;
+}
+
+</style>
+
+
+
 <div class="image-container">
-  
-    <img src="images/WhatsApp_Image_2024-08-30_at_5.59.28_PM-removebg-preview.png" alt="Centered Image" class="centered-image">
- 
+    <img src="images/WhatsApp_Image_2024-08-30_at_5.59.28_PM-removebg-preview.png" alt="Centered Image" class="centered-image" id="coin-image">
 </div>
+
+<!-- Coin Tap Input -->
+
+<script>
+
+   document.getElementById("coin-image").addEventListener("click", function() {
+    const coinImage = document.getElementById("coin-image");
+
+    // Add vibration animation
+    coinImage.classList.add("vibrate");
+    setTimeout(function() {
+        coinImage.classList.remove("vibrate");
+    }, 100);
+
+    // Create the floating "+1" indicator
+    const plusOne = document.createElement("div");
+    plusOne.classList.add("float-plus-one");
+    plusOne.textContent = "+1";
+
+    // Append the "+1" indicator to the image container
+    const imageContainer = document.querySelector(".image-container");
+    imageContainer.appendChild(plusOne);
+
+    // Generate random position within the coin image
+    const maxX = coinImage.offsetWidth;
+    const maxY = coinImage.offsetHeight;
+
+    // Random position within the coin image
+    const randomX = Math.random() * maxX;
+    const randomY = Math.random() * maxY;
+
+    // Apply the random position to the "+1" indicator
+    plusOne.style.left = (coinImage.offsetLeft + randomX) + "px";
+    plusOne.style.top = (coinImage.offsetTop + randomY) + "px";
+
+    // Remove the "+1" after 1.5 seconds
+    setTimeout(function() {
+        plusOne.remove();
+    }, 1500);
+
+});
+
+</script>
+<!-- Tap counter -->
+<script>
+   let totalTaps = 100; // Default number of taps
+let tappingAllowed = true; // Flag to track if tapping is allowed
+let countdownDuration = 2 * 60 * 60 * 1000; // 2 hours in milliseconds
+const button = document.getElementById("withdrawButton");
+
+// Retrieve saved data from localStorage
+let savedTaps = localStorage.getItem('totalTaps');
+let countdownEndTime = localStorage.getItem('countdownEndTime');
+
+// Check if there's saved tap progress
+if (savedTaps !== null) {
+    totalTaps = parseInt(savedTaps, 10);
+}
+
+// Check if there's a saved countdown in progress
+if (countdownEndTime && Date.now() < countdownEndTime) {
+    tappingAllowed = false;
+    startCountdown(parseInt(countdownEndTime));
+} else if (countdownEndTime && Date.now() >= countdownEndTime) {
+    // If the countdown is over, reset everything
+    localStorage.removeItem('countdownEndTime');
+    tappingAllowed = true;
+    totalTaps = 100;
+}
+
+// Function to update the tap counter
+function updateTapCounter() {
+    // Update the button text with remaining taps
+    button.innerHTML = `<i style="margin-right: 5px;" class="fas fa-hand-pointer"></i> ${totalTaps} Taps Left`;
+}
+
+// Function to start the countdown
+function startCountdown(endTime) {
+    // Update the countdownEndTime in localStorage
+    localStorage.setItem('countdownEndTime', endTime);
+
+    // Update the text to show countdown time
+    const countdownInterval = setInterval(function() {
+        const currentTime = Date.now();
+        const timeLeft = endTime - currentTime;
+
+        if (timeLeft <= 0) {
+            // Stop the countdown when time is up
+            clearInterval(countdownInterval);
+            localStorage.removeItem('countdownEndTime');
+            button.innerHTML = `<i style="margin-right: 5px;" class="fas fa-hand-pointer"></i> Tap Again!`;
+            tappingAllowed = true; // Allow tapping again after the countdown
+            totalTaps = 100; // Reset the tap count
+            localStorage.setItem('totalTaps', totalTaps); // Save the reset taps
+            updateTapCounter(); // Show reset taps
+        } else {
+            // Calculate hours, minutes, and seconds left
+            const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            // Update button text with the remaining time
+  // Update button text with the remaining time
+  button.innerHTML = `<i style="margin-right: 5px;" class="fas fa-clock"></i> ${hours}h ${minutes}m ${seconds}s Left`;
+        }
+    }, 1000); // Update every second
+}
+
+// Handle the tap functionality
+document.getElementById("coin-image").addEventListener("click", function() {
+    if (tappingAllowed && totalTaps > 0) {
+        // Handle the tap (vibration and "+1" animation can go here)
+        
+        // Decrease the tap counter
+        totalTaps--;
+
+        // Save the updated tap count to localStorage
+        localStorage.setItem('totalTaps', totalTaps);
+
+        // Update the tap counter display
+        updateTapCounter();
+
+        if (totalTaps === 0) {
+            // Disable tapping after the user reaches 100 taps
+            tappingAllowed = false;
+
+            // Calculate the countdown end time
+            const countdownEndTime = Date.now() + countdownDuration;
+
+            // Start the 2-hour countdown
+            startCountdown(countdownEndTime);
+        }
+    }
+});
+
+// Initialize the tap counter on page load
+updateTapCounter();
+
+
+</script>
+
 </div>
               
               </div>
@@ -486,7 +662,7 @@ style="display: flex; align-items: center; justify-content: center; text-align: 
                     background: #1e1e1e;
                     padding: 15px;
                     height: 80px;
-                  
+                  max-width: 780px;
                     right: 0;
                     margin: 10px;
                     border-radius: 10px;
