@@ -325,17 +325,10 @@
          
      
               
-<div
-style="display: flex; align-items: center; justify-content: center; text-align: center; background: #ffffff; padding: 4px 10px; border-radius: 10px;">
-<img
-    src="images/WhatsApp_Image_2024-08-30_at_5.59.28_PM-removebg-preview.png"
-    alt=""
-    style="width: 30px;  margin-right: 5px;" />
-
-    <h1 style="color: rgb(0, 0, 0); font-weight: bold; font-family: poppins; font-size: 15px; ">
-      0 
-      <!-- <i style="margin-left: 7px; padding: 5px; border-radius: 5px;" class="fas fa-chevron-right"></i> -->
-    </h1>
+<!-- Coin savings system display -->
+<div style="display: flex; align-items: center; justify-content: center; text-align: center; background: #ffffff; padding: 4px 10px; border-radius: 10px;">
+    <img src="images/WhatsApp_Image_2024-08-30_at_5.59.28_PM-removebg-preview.png" alt="" style="width: 30px; margin-right: 5px;" />
+    <h1 id="coin-savings" style="color: rgb(0, 0, 0); font-weight: bold; font-family: poppins; font-size: 15px;">0</h1>
 </div>
           </div>
 <!--     
@@ -693,18 +686,82 @@ updateTapCounter();
             
             <br>
             <div class="profile-container">
-              <h2 class="hero-title" id="Total-amount">0 <strong style="color: orange;">MAX</strong></h2>
-          
-              <button class="claim">Claim!</button>
-          </div>
+                <h2 class="hero-title" id="Total-amount">0 <strong style="color: orange;">MAX</strong></h2>
+                <button class="claim" id="claimButton">Claim!</button>
+            </div>
+            
     
             </div>
           </section>
     
 
+<!-- coin tap +1 fuctionality -->
+        
+        <script>
+ let totalCoins = 0; // Initialize total coins earned by tapping
+let savedCoins = 0; // Initialize total saved coins
 
+// Retrieve saved coin data from localStorage
+let savedCoinsStorage = localStorage.getItem('savedCoins');
+let earnedCoinsStorage = localStorage.getItem('totalCoins');
+
+// Load saved data if it exists
+if (earnedCoinsStorage !== null) {
+    totalCoins = parseInt(earnedCoinsStorage, 10);
+}
+if (savedCoinsStorage !== null) {
+    savedCoins = parseInt(savedCoinsStorage, 10);
+}
+
+// Function to update the coin counter in the HTML
+function updateCoinCounter() {
+    const totalAmountElement = document.getElementById("Total-amount");
+    totalAmountElement.innerHTML = `${totalCoins} <strong style="color: orange;">MAX</strong>`;
+}
+
+// Function to update the coin savings in the HTML
+function updateCoinSavings() {
+    const coinSavingsElement = document.getElementById("coin-savings");
+    coinSavingsElement.innerHTML = savedCoins;
+}
+
+// Claim button functionality
+document.getElementById("claimButton").addEventListener("click", function() {
+    // Add the earned coins to the saved coins
+    savedCoins += totalCoins;
+    
+    // Reset earned coins
+    totalCoins = 0;
+    
+    // Save the updated values to localStorage
+    localStorage.setItem('totalCoins', totalCoins);
+    localStorage.setItem('savedCoins', savedCoins);
+    
+    // Update both the coin counter and the savings display
+    updateCoinCounter();
+    updateCoinSavings();
+});
+
+// Tap event for coin image (adds 1 coin per tap)
+document.getElementById("coin-image").addEventListener("click", function() {
+    if (tappingAllowed && totalTaps > 0) {
+        // Increment the total coins by 1 for each tap
+        totalCoins++;
         
+        // Save the updated coin count to localStorage
+        localStorage.setItem('totalCoins', totalCoins);
         
+        // Update the coin counter display
+        updateCoinCounter();
+    }
+});
+
+// Initialize the coin counter and savings on page load
+updateCoinCounter();
+updateCoinSavings();
+
+
+        </script>
 
 
 

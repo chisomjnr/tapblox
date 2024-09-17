@@ -201,10 +201,12 @@
           </div>
 
         </nav>
+       
+        
         <div class="header-bottom-actions">
 
-          <button class="header-bottom-actions-btn" aria-label="Earn" onclick="window.location.href='home.html';">
-            <ion-icon  name="star-outline"></ion-icon>
+          <button   class="header-bottom-actions-btn" aria-label="Earn" onclick="window.location.href='index.html';">
+            <ion-icon name="star-outline"></ion-icon>
 
             <span>Earn</span>
           </button>
@@ -231,10 +233,10 @@
             <span>Boost</span>
           </button>
 
-          <button  style="  border-radius: 10px;
+          <button style="  border-radius: 10px;
           padding:0 10px;
           background: #3c3c3c;" class="header-bottom-actions-btn" aria-label="Wallet" onclick="window.location.href='wallet.html';">
-             <ion-icon style="color: orange;"name="wallet-outline"></ion-icon>
+               <ion-icon style="color: orange;" name="wallet-outline"></ion-icon>
 
             <span>Wallet</span>
           </button>
@@ -317,18 +319,20 @@
          
      
               
-              <div
-              style="display: flex; align-items: center; justify-content: center; text-align: center; background: orange; padding: 4px 10px; border-radius: 10px;">
-              <img
-                  src="images/WhatsApp_Image_2024-08-30_at_5.59.28_PM-removebg-preview.png"
-                  alt=""
-                  style="width: 30px;  margin-right: 5px;" />
-              
-                  <h1 style="color: rgb(0, 0, 0); font-weight: bold; font-family: poppins; font-size: 15px; ">
-                    0
-                  </h1>
-              </div>
+         <div style="display: flex; align-items: center; justify-content: center; text-align: center; background: #ffffff; padding: 4px 10px; border-radius: 10px;">
+    <img src="images/WhatsApp_Image_2024-08-30_at_5.59.28_PM-removebg-preview.png" alt="" style="width: 30px; margin-right: 5px;" />
+    <h1 class="coin-savings" style="color: rgb(0, 0, 0); font-weight: bold; font-family: poppins; font-size: 15px;">0</h1>
+</div>
+
           </div>
+
+
+
+
+
+
+
+          
             <style>
               .profile-container2 {
                   display: flex;
@@ -573,7 +577,67 @@
 
 
 
+<!-- coin balance js -->
+<script>
 
+  let savedCoins = 0; // Initialize saved coins
+  
+  // Retrieve saved coins from localStorage
+  let savedCoinsStorage = localStorage.getItem('savedCoins');
+  
+  // Load saved data if it exists
+  if (savedCoinsStorage !== null) {
+      savedCoins = parseInt(savedCoinsStorage, 10);
+  }
+  
+  // Function to update all coin savings elements across the app
+  function updateAllCoinDisplays() {
+      // Find all elements with the class "coin-savings"
+      const coinElements = document.querySelectorAll(".coin-savings");
+  
+      // Update the content of all found elements with the saved coin total
+      coinElements.forEach(function(element) {
+          element.innerHTML = savedCoins;
+      });
+  }
+  
+  // Claim button functionality (from the previous implementation)
+  document.getElementById("claimButton").addEventListener("click", function() {
+      // Add the earned coins to the saved coins
+      savedCoins += totalCoins;
+  
+      // Reset earned coins
+      totalCoins = 0;
+  
+      // Save the updated values to localStorage
+      localStorage.setItem('totalCoins', totalCoins);
+      localStorage.setItem('savedCoins', savedCoins);
+  
+      // Update both the coin counter and the savings display
+      updateCoinCounter();
+      updateAllCoinDisplays();
+  });
+  
+  // Tap event for coin image (adds 1 coin per tap) - from previous implementation
+  document.getElementById("coin-image").addEventListener("click", function() {
+      if (tappingAllowed && totalTaps > 0) {
+          // Increment the total coins by 1 for each tap
+          totalCoins++;
+  
+          // Save the updated coin count to localStorage
+          localStorage.setItem('totalCoins', totalCoins);
+  
+          // Update the coin counter display
+          updateCoinCounter();
+      }
+  });
+  
+  // Initialize the coin savings display on page load
+  updateAllCoinDisplays();
+  
+  </script>
+  
+  
 
 
 
