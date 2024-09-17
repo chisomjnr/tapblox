@@ -54,7 +54,7 @@
       <div class="head">
         <a id="goBackLink" href="#" class="logo">
          
-            <h1> <i style="margin-right: 7px; color: orange;" class="fas fa-chevron-left"></i>Account</h1>
+            <h1> <i style="margin-right: 7px; color: orange;" class="fas fa-arrow-left"></i></h1>
           </a>
       </div>
 
@@ -220,37 +220,114 @@
             
             
             </style>
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+   /* Center the entire theme settings container */
+.body {
+    
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black; /* Default to dark theme */
+    color: white; /* Default text color for dark theme */
+}
+
+.theme-settings {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px; /* Adjust the space between the options */
+}
+
+.theme-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.theme-box {
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+#dark-mode {
+    background-color: black;
+}
+
+#light-mode {
+    background-color: white;
+    border: 2px solid transparent;
+}
+
+.selected {
+    border: 2px solid orange;
+}
+
+/* Styling for h1 tags */
+h1 {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+
+</style>
+          <div class="body">
+            <div class="theme-settings">
+                <div class="theme-option">
+                    <div id="dark-mode" class="theme-box selected"></div>
+                    <h1>Dark Mode</h1>
+                </div>
+                <div class="theme-option">
+                    <div id="light-mode" class="theme-box"></div>
+                    <h1>Light Mode</h1>
+                </div>
+            </div>
+          </div>  
+
+
             
-            <div  onclick="window.location.href='./settings/accountsetting_profile.html';" class="profile-container">
-              <h2 class="hero-title" id="Total-amount"><i style="margin-right: 3px; color: orange;" class="fas fa-user-cog"></i> Profile information
-                 <p style="font-size: 14px; color: grey; font-weight: 500; margin-right: 10px;">Username, Email, Phone Number.</p></h2>
-              <span id="toggle-icon" style="color: white; font-size: 18px;" class="amount-toggle-icon">
-                  <i class="fas fa-chevron-right"></i>
-              </span>
-          </div>
-          
-  
-          <div  onclick="window.location.href='./settings/notification.html';" class="profile-container">
-            <h2 class="hero-title" id="Total-amount"><i style="margin-right: 3px; color: orange;" class="fas fa-lock"></i> Change Password
-               <p style="font-size: 14px; color: grey; font-weight: 500; margin-right: 10px;">Reset your existing password
-            </p></h2>
-            <span id="toggle-icon" style="color: white; font-size: 18px;" class="amount-toggle-icon">
-                <i class="fas fa-chevron-right"></i>
-            </span>
-        </div>
+  <script>
+    const darkModeBox = document.getElementById('dark-mode');
+const lightModeBox = document.getElementById('light-mode');
 
+function setTheme(selectedTheme) {
+    if (selectedTheme === 'dark') {
+        darkModeBox.classList.add('selected');
+        lightModeBox.classList.remove('selected');
+        document.body.style.backgroundColor = 'black'; // Apply dark theme
+        document.body.style.color = 'white';
+    } else if (selectedTheme === 'light') {
+        lightModeBox.classList.add('selected');
+        darkModeBox.classList.remove('selected');
+        document.body.style.backgroundColor = 'white'; // Apply light theme
+        document.body.style.color = 'black';
+    }
+}
 
-        <div  onclick="window.location.href='./settings/privacy.html';" class="profile-container">
-            <h2 class="hero-title" id="Total-amount"><i style="margin-right: 3px; color: orange;" class="fas fa-sync-alt"></i> Linked Accounts
-               <p style="font-size: 14px; color: grey; font-weight: 500; margin-right: 10px;">Social Media or Payment Methods</p></h2>
-            <span id="toggle-icon" style="color: white; font-size: 18px;" class="amount-toggle-icon">
-                <i class="fas fa-chevron-right"></i>
-            </span>
-        </div>
+// Event listeners for the boxes
+darkModeBox.addEventListener('click', () => setTheme('dark'));
+lightModeBox.addEventListener('click', () => setTheme('light'));
 
+// Set the default theme as dark
+setTheme('dark');
 
-       
-        
+  </script>
    
        
 
@@ -298,8 +375,7 @@
 
 
 
-
-
+  
 <!--
   Login Functionality
 -->
@@ -329,13 +405,6 @@
         window.location.href = 'login.html';
     }
 </script>
-
-
-
-
-
-
-
 
 
 
