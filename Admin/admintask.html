@@ -17,12 +17,11 @@
 <body>
     <nav>
         <div class="logo-name">
-            <div class="logo-image">
-               <img src="images/logo.png" alt="">
-            </div>
+      
 
-            <span class="logo_name">Tapblox<strong style="color: orange;">.</strong></span>
+            <span class="logo_name">Tapblox Admins<strong style="color: orange;">.</strong></span>
         </div>
+
 
         <div class="menu-items">
             <ul class="nav-links">
@@ -57,10 +56,27 @@
             </ul>
             
             <ul class="logout-mode">
-                <li><a href="#">
+                <li><a href="#" id="logout-btn">
                     <i class="uil uil-signout"></i>
                     <span class="link-name">Logout</span>
-                </a></li>
+                </a>
+            </li>
+            
+            <script>
+                // Add event listener to the logout button
+                document.getElementById('logout-btn').addEventListener('click', function(event) {
+                    event.preventDefault(); // Prevent default link behavior
+            
+                    // Clear login status from sessionStorage
+                    sessionStorage.removeItem('isLoggedIn');
+            
+                    // Optionally, clear localStorage if used for persistent login
+                    // localStorage.removeItem('isLoggedIn');
+            
+                    // Redirect to adminlogin.html
+                    window.location.href = 'adminlogin.html';
+                });
+            </script>
 
                 <li class="mode">
                     <a href="#">
@@ -170,6 +186,19 @@
             </div>
         </div>
     </section>
+
+
+    <script>
+        // Check if the user is logged in
+        window.onload = function() {
+            const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+            
+            if (isLoggedIn !== 'true') {
+                // Redirect to adminlogin.html if not logged in
+                window.location.href = 'adminlogin.html';
+            }
+        };
+    </script>
 
     <script src="admin.js"></script>
 </body>

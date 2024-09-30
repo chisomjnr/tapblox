@@ -79,10 +79,13 @@
                         const username = document.getElementById('username').value;
                         const password = document.getElementById('password').value;
                 
-                        // Check if username and password are correct
                         if (username === 'Tapblox' && password === '123') {
-                            // Redirect to admin.html
-                            window.location.href = 'admin.html';
+    // Set login status in sessionStorage
+    sessionStorage.setItem('isLoggedIn', 'true');
+    
+    // Redirect to admin.html
+    window.location.href = 'admin.html';
+
                         } else {
                             // Show the popup for invalid login
                             showPopup('Invalid login credentials. Please try again.');
@@ -116,7 +119,10 @@
 
 
 
+<script>
 
+
+</script>
 
 
 
