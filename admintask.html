@@ -121,84 +121,172 @@
                     <span class="text">Active Daily Tasks</span>
                     <span class="number">0</span>
                 </div>
-                <div style="background: rgb(213, 213, 213);" class="box box2">
-                  
-                    <span style="color: black;" class="text">Add Task</span>
-                    <i class="fas fa-add"></i>
-                </div>
+               <!-- Task Div -->
+<div style="background: rgb(213, 213, 213); cursor: pointer;" class="box box2" onclick="window.location.href='addtask.html';">
+    <span style="color: black;" class="text">Add Task</span>
+    <i class="fas fa-add"></i>
+</div>
+
     
             
             </div>
 
-            <div class="activity">
-                <div class="title">
-                    <i class="uil uil-clock-three"></i>
-                    <span class="text">Current Tasks</span>
-                </div>
+            <style>
 
-                <div class="activity-data">
-                    <div class="data names">
-                        <span class="data-title">Task Title</span>
-                        <span class="data-list">Refer 10 People</span>
-                  <span class="data-list">Refer 10 People</span>
-                  <span class="data-list">Refer 10 People</span>
-                  <span class="data-list">Refer 10 People</span>
-                  <span class="data-list">Refer 10 People</span>
-                  <span class="data-list">Refer 10 People</span>
-                        <span class="data-list">Refer 10 People</span>
-                    </div>
+        /* General table and button styles */
+       
 
-                    <div class="data type">
-                        <span class="data-title">Earned Coins</span>
-                        <span class="data-list">0</span>
-                        <span class="data-list">0</span>
-                        <span class="data-list">0</span>
-                        <span class="data-list">0</span>
-                        <span class="data-list">0</span>
-                        <span class="data-list">0</span>
-                        <span class="data-list">0</span>
-                    </div>
-              
-                    <div class="data joined">
-                        <span class="data-title">Expire Date</span>
-                        <span class="data-list">2022-02-12</span>
-                        <span class="data-list">2022-02-12</span>
-                        <span class="data-list">2022-02-13</span>
-                        <span class="data-list">2022-02-13</span>
-                        <span class="data-list">2022-02-14</span>
-                        <span class="data-list">2022-02-14</span>
-                        <span class="data-list">2022-02-15</span>
-                    </div>
-                
-               
+        .activity {
+         
+          
+            max-width:100%;
+        
+        }
 
-                    <div class="data status">
-                        <span class="data-title">Actions</span>
-                        <span class="data-list">btn</span>
-                        <span class="data-list">btn</span>
-                        <span class="data-list">btn</span>
-                        <span class="data-list">btn</span>
-                        <span class="data-list">btn</span>
-                        <span class="data-list">btn</span>
-                        <span class="data-list">btn</span>
-                    </div>
-                </div>
-            </div>
+        .title {
+            
+            margin-bottom: 20px;
+        }
+
+        .activity-data {
+            width: 100px;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .activity-data th,
+        .activity-data td {
+        
+            padding: 12px 20px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .activity-data th {
+            background-color: #f0f0f0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .activity-data td {
+            font-size: 16px;
+        }
+
+        /* Styling action buttons */
+        .action-btn {
+            padding: 8px 15px;
+            font-size: 14px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .action-btn.edit {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        .action-btn.edit:hover {
+            background-color: #45a049;
+        }
+
+        .action-btn.delete {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .action-btn.delete:hover {
+            background-color: #e53935;
+        }
+
+    </style>
+
+
+    <div class="activity">
+        <div class="title">
+            <h2>Current Created Tasks</h2>
         </div>
-    </section>
 
+        <!-- The task table structure -->
+        <table class="activity-data">
+            <thead>
+                <tr>
+                    <th>Task Title</th>
+                    <th>Earned Coins</th>
+                    <th>Expire Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            
+        
+        </table>
+
+        <table class="activity-data">
+      
+            
+            <tbody id="taskTableBody">
+                <!-- Task rows will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
 
     <script>
-        // Check if the user is logged in
-        window.onload = function() {
-            const isLoggedIn = sessionStorage.getItem('isLoggedIn');
-            
-            if (isLoggedIn !== 'true') {
-                // Redirect to adminlogin.html if not logged in
-                window.location.href = 'adminlogin.html';
+        // Load tasks from localStorage
+        function loadTasks() {
+            const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+            const taskTableBody = document.getElementById('taskTableBody');
+
+            // Clear the table body
+            taskTableBody.innerHTML = '';
+
+            // Add each task to the table
+            tasks.forEach((task, index) => {
+                const taskRow = `
+                    <tr>
+                        <td>${task.title}</td>
+                        <td>${task.coins}</td>
+                        <td>${task.expiry}</td>
+                        <td>
+                            <button class="action-btn edit" onclick="editTask(${index})">Edit</button>
+                            <button class="action-btn delete" onclick="deleteTask(${index})">Delete</button>
+                        </td>
+                    </tr>
+                `;
+                taskTableBody.innerHTML += taskRow;
+            });
+        }
+
+        // Delete a task
+        function deleteTask(index) {
+            let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+            tasks.splice(index, 1); // Remove task at the given index
+            localStorage.setItem('tasks', JSON.stringify(tasks)); // Update localStorage
+            loadTasks(); // Reload the tasks to update the table
+        }
+
+        // Edit a task
+        function editTask(index) {
+            let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+            let task = tasks[index];
+
+            const newTitle = prompt("Edit Task Title", task.title);
+            const newCoins = prompt("Edit Coins Earned", task.coins);
+            const newExpiry = prompt("Edit Expiry Date", task.expiry);
+
+            if (newTitle && newCoins && newExpiry) {
+                tasks[index] = { title: newTitle, coins: newCoins, expiry: newExpiry };
+                localStorage.setItem('tasks', JSON.stringify(tasks)); // Update localStorage
+                loadTasks(); // Reload the tasks to update the table
             }
-        };
+        }
+
+        // Load tasks when the page loads
+        window.onload = loadTasks;
     </script>
+
+
+  
 
     <script src="admin.js"></script>
 </body>

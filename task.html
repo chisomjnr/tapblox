@@ -424,8 +424,8 @@
                     justify-content: space-between;
                     align-items: center;
                     background: #1e1e1e;
-                    padding: 15px;
-                    height: 80px;
+                    padding: 20px;
+                    height: 100px;
                     padding-block: 15px 10px;
                     z-index: 3;
                     margin-top: 10px;
@@ -450,40 +450,66 @@
             
             
               <!-- Tab contents -->
-              <div id="dailyTasksContent" class="tab-content">
-                <!-- <h2>Daily Tasks</h2>
-                <p>This is the content for Daily Tasks.</p> -->
-
-                <div class="profile-container">
-                  <h2 class="hero-title" id="Total-amount">Day 1</h2>
-              
-                  <button class="claim">Start</button>
-              </div>
-
-              <div class="profile-container">
-                <h2 class="hero-title" id="Total-amount">Day 2</h2>
+              <style>
+                /* General page styling */
             
-                <button class="claim">Start</button>
-            </div>
-
-            <div class="profile-container">
-              <h2 class="hero-title" id="Total-amount">Day 3</h2>
-          
-              <button class="claim">Start</button>
-          </div>
-
-          <div class="profile-container">
-            <h2 class="hero-title" id="Total-amount">Day 4</h2>
         
-            <button class="claim">Start</button>
-        </div>
-
-        <div class="profile-container">
-          <h2 class="hero-title" id="Total-amount">Day 5</h2>
-      
-          <button class="claim">Start</button>
-      </div>
-              </div>
+        
+                .hero-title {
+                    font-size: 20px;
+                    font-weight: bold;
+                    margin: 0;
+                }
+        
+                .claim {
+                    padding: 10px 20px;
+                    font-size: 16px;
+                    border: none;
+                    background-color: #ffa500;
+                    color: white;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    transition: background-color 0.3s ease;
+                }
+        
+                .claim:hover {
+                    background-color: #e69500;
+                }
+            </style>
+        </head>
+        <body>
+        
+            <div id="dailyTasksContent" class="tab-content">
+                <!-- Daily Tasks will be dynamically loaded here -->
+            </div>
+        
+            <script>
+                // Load tasks and display them in the daily tasks content area
+                function loadDailyTasks() {
+                    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+                    const dailyTasksContent = document.getElementById('dailyTasksContent');
+        
+                    // Clear the content before adding tasks
+                    dailyTasksContent.innerHTML = '';
+        
+                    // Add each task in the specified format
+                    tasks.forEach(task => {
+                        const taskHTML = `
+                            <div class="profile-container">
+                                <h2 class="hero-title">${task.title} <br>
+                                    <p style="font-size: 16px; font-weight: 500;">${task.expiry}</p>
+                                    <p style="font-size: 16px; color: orange;">${task.coins} Coins</p>
+                                </h2>
+                                <button class="claim">Start</button>
+                            </div>
+                        `;
+                        dailyTasksContent.innerHTML += taskHTML;
+                    });
+                }
+        
+                // Load the tasks when the page loads
+                window.onload = loadDailyTasks;
+            </script>
             
               <div id="challengesContent" class="tab-content">
                 <div class="profile-container">
